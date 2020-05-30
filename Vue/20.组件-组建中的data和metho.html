@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang=>
+
+<head>
+    <meta charset='UTF-8'>
+    <script src="lib/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-com></my-com>
+        <my-com></my-com>
+        <my-com></my-com>
+    </div>
+    <template id="tem1">
+        <div>
+            <input type="button" value="count+1" @click="count++">
+            <h1>这是全局组件----{{msg}} ' --- ' + {{count}} </h1>
+        </div>
+    </template>
+    <script>
+        //1. 组件可以存在自己的data 数据
+        //2. 组件的 data 和 实例的data 不通过， 实例中的data可以为一个对象，组件中的data必须是一个方法
+        //3. 组件中的 data 处理必须为一个方法之外，这个方法内部还必须返回一个对象
+        //4. 组件中使用data的方式和实例中使用的方式一样
+        Vue.component('myCom', {
+            template: '#tem1',
+            data: function () {
+                return {
+                    msg: "这是组件中data定义的数据",
+                    count: 0
+                }
+            }
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

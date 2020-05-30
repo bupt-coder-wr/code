@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <script>
+        // 对象的解构
+        var person = {
+            name: 'wr',
+            age: 20,
+            school: {
+                start: {
+                    line: 10,
+                    column: 20
+                }
+            }
+        }
+        let {
+            name: myName,
+            age: myAge,
+            // 深层解构需要加{}
+            school: {
+                start
+            }
+        } = person
+        console.log(myName)
+        console.log(myAge)
+        console.log(start.line)
+        console.log(start.column)
+
+        // 数组解构
+        let color = ['red', 'blue', 'green', 'yellow']
+        let [firstColor, secondColor, , forthColor] = color;
+        console.log(firstColor)
+        console.log(secondColor)
+        console.log(forthColor)
+    </script>
+</body>
+
+</html>

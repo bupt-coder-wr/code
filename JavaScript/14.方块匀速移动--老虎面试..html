@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="parent" style="position: relative; width: 1200px; height: 500px; background-color: silver;">
+        <div id="child" style="position: absolute; width: 100px; height: 100px; background-color: red">
+        </div>
+    </div>
+    <script>
+        var parent = document.getElementById('parent');
+        var child = document.getElementById('child');
+        child.style.left = '0px'
+        alert(child.style.left)
+        var direction = 1; //1为向右移动 -1为向左移动
+
+
+        function move() {
+            if (parseInt(child.style.left) == 1100 || parseInt(child.style.left) == 0) {
+                direction*=-1
+            }
+            if ((parseInt(child.style.left) < 1100) && (direction == 1)) {
+                // alert(child.style.left)
+                child.style.left = parseInt(child.style.left) + 50 + "px";
+            }
+            if ((parseInt(child.style.left) > 0) && (direction == -1)) {
+                child.style.left = parseInt(child.style.left) - 50 + "px";
+
+            }
+        }
+        var moveId = setInterval(move, 200);
+    </script>
+</body>
+
+</html>

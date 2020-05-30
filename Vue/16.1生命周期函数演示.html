@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang=>
+
+<head>
+    <meta charset='utf-8'>
+    <script src='./lib/vue-2.4.0.js'></script>
+    <script src=></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="修改字符串" @click="msg='No'">
+        <h3 id="h3"> {{msg}} </h3>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg:'ok'
+            },
+            methods: {
+                show(){
+                    console.log('执行了show方法')
+                    
+                }
+            },
+            beforeCreate() {  //这是我们遇到的第一个生命周期函数，表示实例完全被创建出来之前  会执行它
+                //console.log(this.msg)
+                // console.log(this.$el) //undefined
+                //this.show()
+                //注意  在beforeCreate 生命周期函数执行的时候 data 和 methods中的数据和函数都没有被初始化
+            },
+            created() {
+                //console.log(this.msg);
+                // console.log(this.$el) 
+                //this.show()
+                //如果要调用methods 和data中的数据  最早要到created中操作
+            },
+            beforeMount() {  //这是遇到的第三个生命周期函数  表示模板已经在内存中编译完成  但并没有挂载到页面中去
+                // console.log(this.$el)
+                // this.$el 最早可以在beforeMount中输出
+                
+                // console.log(document.getElementById('h3').innerHTML)
+                //在beformount执行的时候  页面中的元素 还没有被真正替换过来 只是之前写的一个模板字符串
+            },
+            mounted() {
+                // console.log(this.msg)
+                // console.log(this.$el)
+                //mounted 是实例创建期间最后的一个生命周期函数  当执行完mounted就表示  实例已经
+                //被完全创建好了  如果没有其他操作的话  这个实例就躺在内存中 不动
+            },
+            beforeUpdate() {  //表示我们的界面还没有被更新  数据已经被更新
+                //console.log('界面上的元素内容：' + document.getElementById('h3').innerHTML)
+                //console.log('data中的msg数据是：' + this.msg)
+                //得出结论  当执行beforeUpdate的时候  页面中的显示数据  还是旧的  此时data数据是新的  页面尚未和最新的数据保持同步
+            },
+            updated() {
+                //console.log('界面上的元素内容' + document.getElementById('h3').innerHTML)
+                //console.log('data中的msg数据是'+this.msg)
+                //updata 事件执行的时候   内存和页面中的数据都是最新的
+            },
+            beforeDestroy() {
+                //执行beforedestory的钩子函数的时候  vue实例就已经从运行阶段 进入到销毁阶段；
+                //实例身上的data和所有的methods 以及过滤器，指令...都处于可用状态，还没有被销毁
+            },
+            destroyed() {
+                //当执行到destoryed的时候  组件已经被完全销毁  此时组件中所有的数据都已经不可用
+            },
+        });
+    </script>
+</body>
+
+</html>

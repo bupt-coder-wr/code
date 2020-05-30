@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./lib/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .thin {
+            font-weight: thin;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .active {
+            letter-spacing: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用class绑定外部样式 -->
+        <!-- 直接使用class进行绑定 -->
+        <h1 class="red"> 这是一个很红的字 </h1>
+
+        <!-- 使用v-bind进行绑定  传递一个数组-->
+        <h1 :class="['italic']">这是以一个很斜的字</h1>
+
+        <!-- 直接使用对象来绑定 -->
+        <h1 :class="{active:true}">这是一个有间隔的字体</h1>
+
+        <!-- 使用style绑定内联样式 -->
+        <h1 :style="{color:'red'}">这是一个很红的字</h1>
+        
+        <!-- 使用对象引用的方式进行绑定 -->
+        <h1 :style="styleObj2">这是一个很斜的字</h1>
+        
+        <!-- 使用数组引用的方式绑定 -->
+        <h1 :style="[styleObj1,styleObj2]">这是一个H1</h1>
+
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                flag: true,
+                styleObj1: {
+                    color: 'red',
+                    'font-weight': 200
+                },
+                styleObj2: {
+                    'font-style': 'italic'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

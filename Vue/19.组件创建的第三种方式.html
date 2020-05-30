@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang=>
+
+<head>
+    <meta charset='UtF-8'>
+    <script src="lib/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-com3></my-com3>
+    </div>
+    <div id="app2">
+        <login></login>
+    </div>
+
+    <!-- 在app外定义HTML模板结构 -->
+    <template id="tem1">
+        <div>
+            <h1>这是通过template元素，在外部定义的组件结构，这个方式存在代码提示</h1>
+            <h1>hao</h1>
+        </div>
+    </template>
+    <template id="tem2">
+        <div>
+            <h1>这是一个内部组件</h1>
+        </div>
+    </template>
+
+    <script>
+        Vue.component('myCom3', {  //这是一个组件
+            template: '#tem1'
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {}
+        });
+
+        var vm = new Vue({  //这个实例内部有一个子组件
+            el: '#app2',
+            data: {},
+            methods: {},
+            filters: {},
+            components: {
+                login: {
+                    template: '#tem2'
+                }
+            }, //定义实例内部私有组件
+            beforeCreate: {},
+        });
+    </script>
+</body>
+
+</html>

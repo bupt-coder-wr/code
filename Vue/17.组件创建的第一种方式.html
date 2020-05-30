@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang=>
+
+<head>
+    <meta charset='utf-8'>
+    <script src="lib/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 如果要使用组件，直接把组件名称以HTML标签形式，引入到页面中，即可 -->
+        <my-com1></my-com1>
+    </div>
+    
+    <script>
+        // //1.1 使用Vue.extend 创建全局组件
+        // var com1 = Vue.extend({
+        //通过template属性，制定了组件要展示的HTML结构    
+        //     template:'<h3>这是使用Vue.extend 创建的组件</h3>' 
+        //})
+
+        //1.2 使用Vue.component('组件名称',创建出来的组件模板对象)
+        //如果使用Vue.component 定义全局组件的时候，组件名称使用了驼峰命名，则在引用组件的时候需要吧大写的驼峰改为小写的字母，同时中间加 - 
+        // Vue.component('myCom1',com1)
+        //Vue.component第一个参数：组件的名称，将来在引用的时候，就是一个 标签形式 来引入它的
+        //第二个参数 Vue.extend创建组件，其中template 就是组件将来要展示的HTML内容
+        Vue.component('myCom1', Vue.extend({
+            template: '<h3>这是使用Vue.extend 创建的组件</h3>'
+        }))
+
+
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Promise 三种状态：pending, fulfilled, rejected
+    // 一个函数参数：new Promise(function(resolved,rejected))
+    // 两种状态转换： pending->fulfilled, pending->rejected
+    // 三种原型方法： .then(), .catch()， .finally()
+    // 四种普通方法： .all(), .race(), .resolve(), .reject()
+
+    function getNumber() {
+      var p = new Promise(function (resolve, reject) {
+        //一些异步操作
+        setTimeout(function () {
+          var num = Math.ceil(Math.random() * 10);
+          if (num <= 9) {
+            console.log('异步执行1完成')
+            resolve(num)
+          } else
+            reject('num is big')
+        }, 1000)
+
+      })
+      return p;
+    }
+
+    function getName() {
+      var p = new Promise(function (resolve, reject) {
+        //一些异步操作
+        setTimeout(function () {
+          var name = 'wr';
+          console.log('异步执行2完成')
+          resolve(name)
+          reject()
+        }, 3000)
+      })
+      return p;
+    }
+
+    function sayHi() {
+      var p = new Promise(function (resolve, reject) {
+        //一些异步操作
+        setTimeout(function () {
+          var str = 'hi'
+          console.log('异步执行3完成')
+          resolve(str)
+          reject()
+        }, 2000);
+      })
+      return p;
+    }
+    Promise
+      .all([getNumber(), getName(), sayHi()]) //全部由pending->fulfilled有效
+      //.race([getNumber(), getName(), sayHi()]) //第一个由pending->rejected或pending->fulfilled触发，触发对应的resolve或reject函数，剩下的继续执行
+      .then(function (data) { //用于触发fulfilled状态的函数
+        console.log('resolved')
+        console.log(data)
+
+      }).then(function () {
+        console.log('串联promise，继续执行')
+        throw new Error('Boom')
+      }).catch(function (error) {
+        console.log(error.message)
+      })
+      .catch(function (data) { //用于触发rejected状态的函数
+        console.log('rejected')
+        console.log(data)
+      })
+  </script>
+</body>
+
+</html>

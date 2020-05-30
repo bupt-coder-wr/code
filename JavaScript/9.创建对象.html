@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.0 工厂模式
+        function createPerson(name, age, job) {
+            var obj = new Object();
+            obj.name = 'van';
+            obj.age = 19;
+            obj.job = 'stu';
+            obj.sayName = function () {
+                console.log(this.name)
+            }
+            return obj;
+        }
+
+        // 2.0 构造函数模式
+        function Person(name, age, job) {
+            this.name = name;
+            this.age = age;
+            this.job = job;
+            this.sayName = function () {
+                console.log(this.name)
+            }
+        }
+        var person1 = new Person('van', 22, 'stu');
+        // alert(person1.name); 
+        // alert(person1.constructor===Person)  //constructor为一属性，指向构造函数
+
+        // 3.0 原型模型
+        function Person() {};
+        Person.prototype.name = "wang";
+        Person.prototype.age = 20;
+        Person.prototype.job = "stu";
+        // Person.prototype.sayJob = function () {
+        //     console.log(this.job);
+        // };
+        var woman = new Person();
+        var man = new Person();
+        // console.log(Object.getPrototypeOf(woman).name)
+        // woman.name = "wangrun";
+        // console.log(woman.name);
+        // console.log(man.name);
+        woman.gender = "female";
+        // console.log(woman.gender);
+        woman.name = null;
+        console.log(woman.name);
+        // console.log(man.name);
+        delete woman.name;
+        console.log(woman.name)
+
+        // hasOwnProperty()方法  用于判断属性是来自于实例还是来自于原型  当来自于实例是返回true
+        console.log(woman.hasOwnProperty('name')); //来自原型  false
+        console.log(woman.hasOwnProperty('gender')) //来自实例  true
+
+        // in方法  判断是否存在属性
+        console.log('name' in woman) //true
+
+        // Objecct.keys() 返回包含所有可枚举属性的字符串
+        var keys = Object.keys(Person.prototype);
+        console.log(keys);
+
+        // 3.0 组合使用构造函数模式和原型模式
+        function Person() {
+
+        }
+        Person.prototype = {
+
+        }
+        // 4.0 动态原型模式
+        function Person() {
+            if(typeof this.sayName != "function"){
+                Person.prototype.sayName = function(){
+
+                }
+            }
+        }
+        //寄生构造函数模式
+
+        //稳妥构造函数模式
+    </script>
+</body>
+
+</html>

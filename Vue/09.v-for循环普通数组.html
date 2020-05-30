@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./lib/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 第一个参数是value值 -->
+        <!-- 第二个参数是key索引 -->
+        <input type="button" value="cut" @click='cut'>
+        <input type="button" value="change" @click='change'>
+        <input type="button" value="add" @click='add'>
+        <p v-for="(item, i) in list">索引值：{{i}}---每一项：{{item}}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                list: [1, 2, 3, 4, 5, 6, 7],
+                obj: {
+                    name: 'wr'
+                },
+                obj2: {
+                    age: 19,
+                    gender: 'male'
+                },
+                obj3: {}
+            },
+            methods: {
+                cut() {
+                    // this.list.length = 6 无效
+                    this.list.splice(6)
+                },
+                change() {
+                    // this.list[0] = 0  无效
+                    // Vue.set(vm.list, 0, 99)
+                    // vm.$set(vm.list, 0, 99)
+                    vm.list.splice(0, 1, 99)
+                },
+                add() {
+                    this.obj3 = Object.assign(this.obj, this.obj2)
+                }
+
+            },
+
+        })
+    </script>
+</body>
+
+</html>

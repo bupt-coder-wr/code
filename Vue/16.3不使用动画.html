@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang=>
+
+<head>
+    <meta charset='utf-8'>
+    <script src='./lib/vue-2.4.0.js'></script>
+    <script src=></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" @click='flag =! flag' value="点击">
+        <h3 v-if='flag'>这是一个H3</h3>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: true
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

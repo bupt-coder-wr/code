@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./99.经典布局.css">
+</head>
+
+<body>
+
+  <!-- 头部 -->
+  <div class="header">
+    <h2>
+      <span class="fPart">RUNOOB</span><span class="sPart">.com</span>
+    </h2>
+    <div class="input">
+      <label for="search">Input What You Want:</label>
+      <input type="text" id='search' placeholder="搜索......">
+    </div>
+  </div>
+
+  <!-- 导航栏 -->
+  <div class="nav">
+    <ul>
+      <li><a href="#">首页</a></li>
+      <li><a href="#">菜鸟笔记</a></li>
+      <li><a href="#">菜鸟工具</a></li>
+      <li><a href="#">参考手册</a></li>
+      <li><a href="#">用户笔记</a></li>
+      <li><a href="#">本地书签</a></li>
+      <li><a href="#">登录</a></li>
+    </ul>
+  </div>
+  <hr class="hr1">
+
+  <!-- 左侧边栏 -->
+  <div id="main">
+    <div class="aside">
+      <ul>
+        <li class="firstItem">全部教程</li>
+        <li class="otherItem"><a href="#">HTML/CSS</a></li>
+        <li class="otherItem"><a href="#">JavaScript</a></li>
+        <li class="otherItem"><a href="#">服务端</a></li>
+        <li class="otherItem"><a href="#">数据库</a></li>
+        <li class="otherItem"><a href="#">移动端</a></li>
+        <li class="otherItem"><a href="#">XML教程</a></li>
+        <li class="otherItem"><a href="#">ASP.NET</a></li>
+        <li class="otherItem"><a href="#">Web Service</a></li>
+        <li class="otherItem"><a href="#">开发工具</a></li>
+        <li class="otherItem"><a href="#">网站建设</a></li>
+      </ul>
+    </div>
+    <!-- 主内容 -->
+    <div class="content">
+      <h2>HTML / CSS</h2>
+      <hr class="hr2">
+      <div class="module">
+        <div class="block">
+          <h3>【学习HTML】</h3>
+          <img src="" alt="html">
+          <p>HTML，即超文本语言</p>
+        </div>
+        <div class="block">
+          <h3>【学习HTML5】</h3>
+          <img src="" alt="CSS">
+          <p>HTML5是下一代HTML标准</p>
+        </div>
+        <div class="block">
+          <h3>【学习CSS】</h3>
+          <img src="" alt="CSS">
+          <p>层叠样式表</p>
+        </div>
+        <div class="block">
+          <h3>【学习CSS3】</h3>
+          <img src="" alt="CSS3">
+          <p>CSS3是CSS技术的升级版本</p>
+        </div>
+        <div class="block">
+          <h3>【学习Bootstrap3】</h3>
+        </div>
+        <div class="block">
+          <h3>【学习Bootstrap4】</h3>
+        </div>
+        <div class="block">
+          <h3>【学习Font Awesome】</h3>
+        </div>
+        <div class="block">
+          <h3>【学习Foundation】</h3>
+        </div>
+      </div>
+
+      <h2>JavaScript</h2>
+      <hr>
+      <div id="module">
+
+      </div>
+      <h2>服务端</h2>
+      <hr>
+      <div id="module">
+
+      </div>
+
+    </div>
+  </div>
+
+
+</body>
+
+</html>
+<!-- 遇到的问题 -->
+<!-- 1. 在设计下拉菜单的时候  格式调不对(已删除) -->
+<!-- 2. 在设计第二个列表的时候，样式自动匹配为第一个列表的样式，开始为每一个部分添加独立标签 -->
+<!-- 3. position:absolute 定位是相对于以定位元素进行定位，但是不占据文档流！！
+    也就是说，两个相邻的absolute定位会从相同位置进行显示 -->

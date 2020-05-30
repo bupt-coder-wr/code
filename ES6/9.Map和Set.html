@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //Map的用法，和Object的区别
+    var myMap = new Map();
+    var keyString = "A string";
+    var keyFunction = function () {};
+    var keyObject = {};
+
+    myMap.set(keyString, "这是一个键值");
+    myMap.set(keyFunction, "这是一个函数");
+    myMap.set(keyObject, "这是一个对象");
+    myMap.set(0, "这是一个数字")
+
+    document.write(myMap.get(keyString) + '<br>');
+    document.write(myMap.get("A string") + '<br>');
+    document.write(myMap.get(keyFunction) + '<br>');
+    document.write(myMap.get(keyObject) + '<br>');
+    document.write(myMap.get(0))
+
+
+    // for..of 和 forEach 的遍历
+    for (var [key, value] of myMap) {
+        console.log(key + '----' + value);
+    }
+    console.log('<br>')
+    myMap.forEach(function (value, key) {
+        console.log(key + '----' + value);
+    }, myMap)
+    document.write('<br>');
+
+    //Set()对象的使用，允许你存储任何类型的唯一值，无论是原始值还是对象引用
+
+    const arr = ['a', 'b', 'c', 'c'];
+    for (let i = 0; i < arr.length; i++) {
+        document.write(arr[i]);
+    }
+    document.write('<br>');
+
+    var mySet = new Set(arr);
+    var newarr = [...mySet];
+    for (let i = 0; i < newarr.length; i++) {
+        document.write(newarr[i]);
+    }
+
+    let setArr = new Set(arr);
+    for (let list of setArr) { //keys()：返回键名的遍历器
+        console.log(list);
+    }
+</script>
+
+</html>

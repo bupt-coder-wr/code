@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./lib/vue-2.4.0.js"></script>
+    <title>跑马灯</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="浪起来" v-on:click="lang()">
+        <input type="button" value="别浪" v-on:click="stop()">
+        <p>{{ msg }}</p>
+    </div>
+    <script>
+        //在 VM 实例中，如果想获取data上的数据，或者想要调用 methods 中的方法，必须通过this.数据属性名 或 this. 方法名 来访问，这里的this就表示我们new出来的VN实例对象
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "猥琐发育，别浪~~~",
+                IntervalId: null,
+            },
+            methods: {
+                lang() {
+                    if (this.IntervalId != null)
+                        return;
+                    IntervalId = setInterval(() => {
+                        var start = this.msg.substring(0, 1);
+                        var end = this.msg.substring(1);
+                        this.msg = end + start;
+                    }, 400)
+
+                },
+                stop() {
+                    clearInterval(IntervalId);
+                    //每次清除IntervalID之后 Interval 并不等于null
+                    this.IntervalId = null;
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

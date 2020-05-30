@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang=>
+
+<head>
+    <meta charset='utf-8'>
+    <script src='./lib/vue.js'></script>
+    <script src=></script>
+    <link rel="stylesheet" href="./lib/animate.css">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 入场使用bounceIn  离场 BounceOut -->
+        <input type="button" @click='flag =! flag' value="点击">
+        <!-- <transition enter-active-class='animated bounceIn' enter-leave-class='animated bounceOut'>
+            <h3 v-if='flag'>这是一个H3</h3>
+        </transition> -->
+
+
+        <!-- 使用:duration 来统一设置入场和离场的毫秒值 -->
+        <!-- <transition enter-active-class='bounceIn' enter-leave-class='bounceOut' :duration='200'>
+            <h3 v-if='flag' class="animated">这是一个H3</h3>
+        </transition> -->
+
+        <!-- 使用duration{}传递对象来分别设置入场和离场 -->
+        <transition enter-active-class='bounceIn' enter-leave-class='bounceOut' :duration={enter:200,leave:400}>
+            <h3 v-if='flag' class="animated">这是一个H3</h3>
+        </transition>
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: true
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

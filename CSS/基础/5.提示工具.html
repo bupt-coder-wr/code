@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .toolTip {
+            position: relative;
+            display: inline-block;
+
+        }
+
+        .toolTip .tipText {
+            visibility: hidden;
+            width: 100px;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .toolTip:hover .tipText {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toolTip">提示在左边 <span class="tipText">提示文本</span></div>
+    <hr>
+    <div class="toolTip">提示在头部 <span class="tipText">提示文本</span></div>
+    <hr>
+    <div class="toolTip">提示在右边 <span class="tipText">提示文本</span></div>
+    <hr>
+    <div class="toolTip">提示在底部 <span class="tipText">提示文本</span></div>
+</body>
+
+</html>

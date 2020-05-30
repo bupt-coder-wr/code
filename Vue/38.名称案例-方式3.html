@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang=>
+
+<head>
+    <meta charset='utf-8'>
+    <script src='./lib/vue-2.4.0.js'></script>
+    <script src=></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="firstName"> +
+        <input type="text" v-model="lastName"> =
+        <input type="text" v-model="fullName">
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                firstName: '',
+                lastName: '',
+                // fullName:  不用在这里重复定义
+            },
+            methods: {},
+            //  注意：计算属性在引用的时候，不要加小括号去调用，  直接把他当做普通属性去调用
+            //  注意：只要计算属性这个function 内部  所用到的任何data 中的数据发生变化  就会重新计算 这个计算属性的值
+            //  注意：计算属性的求值结果  会被缓存起来 方便下次直接调用  如果计算属性方法中  所以来的任何数据都没有发生变化  则不会重新计算求值
+            computed: { //可以定义一些属性，这些属性叫做计算属性，计算属性的本质就是一个方法 只不过 我们在使用这些计算属性的时候，把他们的属性直接当做属性来使用 并不会吧计算属性当方法来调用
+                'fullName'() {
+                    return this.firstName + '-' + this.lastName
+                }
+            },
+        
+        });
+        // methods watch computed 区别
+        // methods 更注重业务逻辑 可以写业务逻辑
+        // watch  不需要return返回值  键是观察的表达式  值是回调函数   可用来监听一些逻辑变化，可看做是methods和computed的结合体
+        // computed 需要return一个返回值  结果会被缓存  所依赖的数据发生变化 才会重新计算
+    </script>
+</body>
+
+</html>

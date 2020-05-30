@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //数组 的创建
+    //Array.of()  将参数中所有值作为元素形成数组 
+    //Array.from() 将类数组对象或可迭代对象转化为数组 
+    console.log(Array.of(1, 2, 3, 4, 5));
+    console.log(Array.of(1, '2', true));
+    console.log(Array.from([1, , , 2]));
+
+    //类数组对象
+    //必须含有length属性 且元素属性名必须是数值或者可转化为数值的字符
+    var arr = Array.from({
+        0: '1',
+        1: '2',
+        2: 3,
+        length: 3
+    })
+    console.log(arr)
+
+    //遍历方法
+    //find()  查找数组中符合条件的元素  若有多个符合条件的元素  返回第一个
+    var arr = Array.of(1, 2, 3, 4)
+    document.write(arr.find(item => item > 2) + '<br>')
+
+    //findIndex() 查找数组中符合条件的元素索引  若有多个符合条件的元素   则返回第一个元素索引
+    document.write(arr.findIndex(item => item == 3) + '<br>')
+
+    //fill()  将一定范围索引的数组元素内容填充为单个指定的值
+    //参数一：用来填充的值  参数二：被填充的起始索引  参数三：被填充结束索引 默认为数字末尾
+    document.write(arr.fill(99, 3, 4) + '<br>')
+    //document.write(arr + '<br>')
+
+    //copyWithin()  将一定范围索引的数组元素修改为此数组零一指定单位索引的元素
+    //参数一：被修改的起始索引  参数二：被用来覆盖的数据的起始索引  参数三：被用来覆盖的数据的结束索引  默认为数组默
+    var arr = Array.of(1, 2, 3, 4)
+    document.write(arr.copyWithin(0, 3, 4) + '<br>')
+
+    //entries() 遍历键值对
+    let entries = ['a', 'b', 'c'].entries()
+    console.log(entries.next().value)
+    console.log(entries.next().value)
+    console.log(entries.next().value)
+
+    //keys() 遍历键名
+    //values() 遍历键值
+    //includes() 数组是否包含指定值
+    //与 Set 和 Map 的 has 方法区分；Set 的 has 方法用于查找值；Map 的 has 方法用于查找键名。
+
+    //flat() 嵌套数组转以为数组  
+    console.log([1, [2, 3, [4, 5]]].flat(Infinity))
+
+    //flatMap()  先对数组中每个元素进行了处理  再对数组执行flat()方法
+    console.log([1, 2, 3].flatMap(n => [n * 2]))
+
+    //数组缓冲区
+    //通过构造函数创建  单位是字节
+    // let buffer = new ArrayBuffer(10)
+    // console.log(buffer.byteLength)
+    // let buffer1 =buffer.slice(3,4);
+    // console.log(buffer1.byteLength)
+</script>
+
+</html>

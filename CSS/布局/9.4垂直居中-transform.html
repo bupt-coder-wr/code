@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      position: relative;
+      width: 100%;
+      height: 600px;
+      background-color: brown;
+    }
+
+    #child {
+      position: absolute;
+      top: 50%;
+      /* 先向下移动50%，再向上移动自身的50% */
+      transform: translateY(-50%);
+
+      width: 200px;
+      height: 100px;
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div id="child"></div>
+  </div>
+</body>
+
+</html>

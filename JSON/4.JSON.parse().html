@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p id="obj"></p>
+        <p id="myobj"></p>
+        <p id="objdate"></p>
+        <p id="func"></p>
+    </div>
+    <script>
+        //语法 JSON.parse(text[, reviver])
+        //text：必需  一个有效的JSON字符串
+        //reviver:可选  一个转换结果的函数
+        var obj = JSON.parse('{ "name":"runoob", "alexa":10000, "site":"www.runoob.com" }')
+        document.getElementById('obj').innerHTML = obj.name + ' : ' + obj.site
+
+        //从服务端接收JSON数据
+        // var xmlhttp = new XMLHttpRequest()
+        // xmlhttp.onreadystatechange = function () {
+        //     if (this.readyState === 4 && this.status === 200) {
+        //         myObj = JSON.parse(this.responseText)
+        //         document.getElementById('myobj').innerHTML = myObj.name;
+        //     } else {
+        //         alert('请求失败')
+        //     }
+
+        // }
+        // xmlhttp.open('get', '/try/ajax/json_demo.txt', true)
+        // xmlhttp.send()
+
+        //从服务端接收数组的JSON数据
+
+        //异常
+        //json不能存储Date对象  如果需要存储date对象  需要将其转换为字符串
+        var text = '{"name":"Runoob", "initDate":"2013-12-14", "site":"www.runoob.com"}'
+        var obj = JSON.parse(text)
+        obj.initDate = new Date(obj.initDate)
+        document.getElementById('objdate').innerHTML = obj.name + ' 创建日期 ' + obj.initDate
+
+
+        //解析函数  JSON不允许使用函数  但可以将函数作为字符串串存储  之后再将字符串转换为函数
+        var text = '{ "name":"Runoob", "alexa":"function () {return 10000;}", "site":"www.runoob.com"}';
+        var obj = JSON.parse(text)
+        obj.alexa = eval('(' + obj.alexa + ')')
+        document.getElementById('func').innerHTML = obj.name + ' Alexa: ' + obj.alexa()
+    </script>
+</body>
+
+</html>

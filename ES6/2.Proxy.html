@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //proxy 语法  let proxy = new Proxy(target, handle)
+    //target 是要代理的对象
+    //handle 是定义拦截的具体行为
+    let person = {
+        name: 'wr',
+        age: 12
+    };
+
+    //主要用到两个函数 get()  set()
+    //get(target, propKey, receiver)：拦截对象属性的读取 
+    //set(target, propKey, value, receiver)：拦截对象属性的设置  返回一个布尔值
+    let proxy = new Proxy(person, {
+        get(target, property) {
+            if (property in target) {
+                return target[property]
+            } else {
+                throw new ReferenceError('the property yoou want to get:' + property + 'does not exist')
+            }
+        }
+    });
+    console.log(proxy.name, proxy.age)
+    console.log(proxy.job)
+    //
+</script>
+
+</html>

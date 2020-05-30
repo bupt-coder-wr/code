@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #myCanvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="600px" height="600px"></canvas>
+    <script>
+        //使用 fillRect 画矩形，参数分别是（x,y,width,height）
+        var myCan = document.getElementById('myCanvas')
+        var tx = myCan.getContext("2d")
+        // tx.fillStyle = 'red';
+        // tx.fillRect(0, 0, 150, 80)
+
+        //使用moveTo() lineTo() stroke()画直线
+        // tx.moveTo(0,0)
+        // tx.lineTo(300,150)
+        // tx.stroke()
+
+        //使用arc(x,y,r,start,stop)画圆
+        // tx.beginPath();
+        // tx.arc(200, 200, 100, 0, 2 * Math.PI)
+        // tx.stroke()
+
+        //使用font定义字体
+        //使用fillText定义实心字体  使用strokeText定义空心字体
+        // tx.font = '30px Arial'
+        // tx.fillText('Hello World', 50, 60) //参数（文本，x,y）
+        // tx.strokeText('Hello World', 50, 60)
+
+        //创建过渡色
+        //使用createLinearGradient()创建过渡线条
+        //使用createRadialGradient()创建径向圆渐变
+
+        // var grd = tx.createLinearGradient(0, 0, 200, 0);
+        // var grd = tx.createRadialGradient(75, 50, 5, 90, 60, 100)
+        // grd.addColorStop(0, 'red') //参数0为开始
+        // grd.addColorStop(1, 'white') //参数1为结束
+        // tx.fillStyle = grd
+        // tx.fillRect(10, 10, 150, 80)
+    </script>
+</body>
+
+</html>

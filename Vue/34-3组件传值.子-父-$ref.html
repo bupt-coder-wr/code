@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./Vue/lib/vue.js"></script>
+</head>
+
+<body>
+  <div id="app" ref="parent">
+    <p>我是父组件---{{pMsg}}</p><input type="button" value="戳我传递子组件数据" @click="getMsg">
+
+    <hr>
+    <com ref="child"></com>
+  </div>
+
+
+  <template id="temp">
+    <div>
+      <p>我是子组件---{{childData}}</p>
+      <p>来自父组件的数据</p>
+
+    </div>
+  </template>
+
+  <script>
+    let com = {
+      template: '#temp',
+      data() {
+        return {
+          childData: '我是c-data'
+        }
+      },
+    }
+
+    let vm = new Vue({
+      data: {
+        pMsg: '我是p-data',
+        pChild: ''
+      },
+      methods: {
+        getMsg() {
+          alert(this.$refs.child.childData)
+        }
+      },
+      components: {
+        com
+      },
+
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>

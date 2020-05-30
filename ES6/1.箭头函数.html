@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1. 只有一个参数，（）可以省 -->
+    <!-- 2. 只有一个return，{}可以省 -->
+    <script>
+        //普通函数
+        a = function () {
+            alert("这是普通函数")
+        }
+
+
+        //箭头函数
+        b = () => {
+            alert("这是箭头函数")
+        }
+
+
+        //箭头函数传参
+        // let show = a => {
+        //     return a * 2;
+        // }
+        // alert(show(4));
+        // function mul(a, b) {
+        //     return a * b;
+        // }
+        function mul(a = 2, b = 3) {
+            return a * b;
+        }
+        //当箭头要返回对象的时候，区分代码块，要用()将对象包裹起来
+        var f = (id, name) => ({
+            id: id,
+            name: name
+        });
+
+        //注意点：没有this, super, arguments 和 new.target绑定
+        var func1 = () => {
+            console.log(this)
+        }
+        var func2 = () => {
+            console.log(arguments)
+        }
+    </script>
+</body>
+
+</html>

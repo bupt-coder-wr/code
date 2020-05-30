@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./lib/vue-2.4.0.js"></script>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-cloak可以解决插值表达式闪烁问题 -->
+        <p v-cloak>===={{ msg }}====</p>
+        <p>{{msg}}</p>
+
+        <!-- v-text默认没有闪烁问题 -->
+        <!-- v-text会覆盖文本中原来的内容，但是插值表达式只会替换自己的占位符 不会把整个元素内容清空 -->
+        <h4 v-text="msg">-----------------------------------</h4>
+
+        <!-- v-html 可以解析html语言 -->
+        <p v-html="msg2">1212</p>
+
+        <!-- v-bind是vue提供的属性绑定的指令 可以使用缩写：-->
+        <input type="button" value="按钮" :title="mytitle + '111'">
+
+        <!-- v-on 实现事件绑定 后面绑定一个方法，不能直接写js代码 缩写是 @-->
+        <input type="button" value="按钮" v-on:click="show">
+    </div>
+
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "Hello world",
+                msg2: "<h1>我是一个H1</h1>",
+                mytitle:"这是定义的一个title"
+            },
+            methods:{  //定义方法
+                show:function(){
+                    alert("Hello")
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

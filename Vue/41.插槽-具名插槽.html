@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <mycom>
+            <!-- 在组件上使用template标签 和v-slot属性 来区分每个不同的插槽 -->
+            <!-- v-slot: 的缩写  #  即，v-slot:header 为 #header-->
+            <template #header>
+                <p>我是插槽header上的内容</p>
+            </template>
+            <template v-slot：default>
+                <p>我是插槽main上的内容</p>
+            </template>
+            <template v-slot:footer>
+                <p>我是插槽footer上的内容</p>
+            </template>
+        </mycom>
+    </div>
+    <!-- 可以在组件模板上定义多个插槽，并为每个插槽添加name属性 -->
+    <!-- 如果插槽上没有标注name属性  则默认为default -->
+    <template id="temp1">
+        <div>
+            <p>我是组件上的内容</p>
+            <header>
+                <slot name="header"></slot>
+            </header>
+            <main>
+                <slot></slot>
+            </main>
+            <footer>
+                <slot name="footer"></slot>
+            </footer>
+            <p>我也是组件上的内容</p>
+        </div>
+
+    </template>
+
+    <script>
+        Vue.component('mycom', {
+            template: '#temp1'
+        })
+        new Vue({
+            el: '#app',
+            data: {
+
+            },
+        })
+    </script>
+
+</body>
+
+</html>

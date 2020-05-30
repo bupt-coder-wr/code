@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function A() {
+            this.valueA = true;
+        }
+        A.prototype.getValuea = function () {
+            return valueA;
+        }
+
+        function B() {
+            this.valueB = false;
+        }
+        B.prototype = new A();  //将A的实例赋值给B的原型   实现继承
+        B.prototype.getValueb = function () {
+            return valueB;
+        }
+
+        function C() {
+            this.valueC = true;
+        }
+        C.prototype = new B();  //将B的实例赋值给C的原型   实现继承
+        C.prototype.getValuec = function () {
+            return valueC;
+        }
+        var instanceA = new A();
+        var instanceB = new B();
+        var instanceC = new C();
+    </script>
+</body>
+
+</html>

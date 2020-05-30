@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODoList</title>
+    <link rel="stylesheet" href="../CSS/todolist.css">
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div id="header">
+        <h1>TODoList--By Wr</h1>
+
+        <div id="add">
+                <input id="inputText" type="text" placeholder="To do..." value="" maxlength="50">
+                <button id="addBtn">添加</button>
+        </div>
+    </div>
+
+    <!-- 中间部分 -->
+    <div id="main">
+        <div id="changeModule">
+            <input id="showAll" type="button" value="All    ">
+            <input id="showTodo" type="button" value="todo  ">
+            <input id="showDone" type="button" value="done  ">
+        </div>
+        <div id="todo">
+            <h2>Todo</h2>
+            <ul id="todoUl">
+            </ul>
+        </div>
+        <div id="done">
+            <h2>Done</h2>
+            <ul id="doneUl">
+
+            </ul>
+        </div>
+        <p><a href="#" id="clean">clean all done</a></p>
+    </div>
+
+    <!-- 尾部 -->
+    <div id="footer">
+        <p>CopyRight---by <a href="#">wr</a> 2019.9.16</p>
+    </div>
+    <script src="../JS/EventUtil.js"></script>
+    <script src="../JS/CookieUtil.js"></script>
+    <script src="../JS/todolist.js"></script>
+</body>
+
+</html>
+<!-- 问题 -->
+<!-- 1. 在添加完数据后，用console.log测试  数据会出现然后马上消失 -->
+<!-- 解决：button按钮默认提交方式为submit 每次点击button会导致页面更新 
+    以至于无法进行信息保存 -->
+
+<!-- 3. 在进行添加数据的时候，会将前面的数据重复挂载 -->
+<!-- 解决：每次在挂载的时候，先将前面的已有的内容进行清除 -->
+
+<!-- 4. 在进行清空done的时候 点击后并不能全部删除 -->
+<!-- 解决：将顺序遍历数组删除，改成逆序遍历数组删除 -->
+
+<!-- 5. 在匹配点击元素，进行移除到done时，如果在done中已经存在相同的内容  则该内容无法删除 -->
+<!-- 解决：改变用内容标识作为判别标准，改为用时间戳来判别 -->

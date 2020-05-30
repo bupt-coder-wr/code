@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang=>
+
+<head>
+    <meta charset='utf-8'>
+    <script src='./lib/vue-2.4.0.js'></script>
+    <script src=></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <childcomponent></childcomponent>
+    </div>
+
+    <template id="temp">
+        <div>
+            <h2>Hello</h2>
+        </div>
+
+    </template>
+
+    <script>
+        var childcomponent = {
+            template: '#temp'
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                postFontSize: 1,
+            },
+            methods: {
+
+            },
+            components: {
+                childcomponent,
+            }
+        });
+
+        
+    </script>
+</body>
+
+</html>

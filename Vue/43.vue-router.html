@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./lib/vue.js"></script>
+  <script src="./lib/vue-router.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 使用name属性进行路由时，需要进行v-bind绑定 -->
+    <router-link v-bind:to="{name:'login'}">登录</router-link>
+    <router-link v-bind:to="{name:'register'}">注册</router-link>
+
+
+    <router-view></router-view>
+
+  </div>
+
+
+  <template id="mylogin">
+    <div>
+      我是登录组件
+      <!-- <input type="text"> -->
+      <div>
+        <router-link :to="{name:'a'}">我是登录的--小a</router-link>
+        <router-link :to="{name:'b'}">我是登录的--小b</router-link>
+        <router-view></router-view>
+      </div>
+
+    </div>
+  </template>
+
+  <template id="myregister">
+    <div>
+      我是注册组件
+
+      <div>
+        <router-view name="rega"></router-view>
+        <router-view name="regb"></router-view>
+      </div>
+
+    </div>
+  </template>
+
+
+  <script>
+
+    var login = {
+      template: "#mylogin"
+    }
+
+    var register = {
+      template: '#myregister'
+    }
+
+
+    let a = {
+      template: '<h2>lalala</h2>'
+    }
+    let b = {
+      template: '<h2>ououou</h2>'
+    }
+
+
+    const routerObj = new VueRouter({
+      routes: [{
+        path: '', // 重定向
+        redirect: '/login'
+      }, {
+        path: '/login',
+        name: 'login',
+        component: login,
+        // meta: {
+        //   keepAlive: true,
+        // },
+        children: [{
+          // 这里的path不用增加 / ,否则会被当做根路径
+          path: 'a',
+          // 使用name属性，直接给路由命名，在使用时，传递一个对象
+          name: 'a',
+          component: a,
+        }, {
+          path: 'b',
+          name: 'b',
+          component: b,
+        }],
+        props: true
+      }, {
+        path: '/register',
+        name: "register",
+        // 命名视图 a,b 同时展示
+        components: {
+          rega: a,
+          regb: b,
+        },
+        props: { default: true, }
+
+      }],
+
+    })
+
+    const vm = new Vue({
+      components: {
+        login,
+        register,
+      },
+      router: routerObj,
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>

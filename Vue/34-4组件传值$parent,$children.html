@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./Vue/lib/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <p>我是父组件---{{pMsg}}</p>
+    <input type="button" value="戳我触发子组件方法" @click="getMsgFromson">
+    <hr>
+    <com></com>
+  </div>
+  <template id="temp">
+    <div>
+      <input type="button" value="戳我触发父组件方法" @click="getMsgFromParent">
+    </div>
+  </template>
+
+
+  <script>
+
+
+    let vm = new Vue({
+      data: {
+        pMsg: '我是p-data',
+        pChild: ''
+      },
+      methods: {
+        getMsgFromson() {
+          alert(this.$children[0].childData)
+        },
+        show() {
+          alert(this.pMsg)
+        }
+      },
+      components: {
+        com: {
+          template: '#temp',
+          data() {
+            return {
+              childData: '我是c-data'
+            }
+          },
+          methods: {
+            show() {
+              alert('I\'m a son')
+            },
+            getMsgFromParent() {
+              alert(this.$parent.pMsg)
+              this.$parent.show()
+            }
+          },
+        }
+      },
+
+    }).$mount('#app')
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang=>
+
+<head>
+  <meta charset='utf-8'>
+  <script src='./lib/vue.js'></script>
+  <script src='./lib/vue-router.js'></script>
+  <title>Document</title>
+</head>
+
+<!--   父组件 -> 子组件 传值 -->
+<!-- 在组件上用v:bind绑定，然后在子组件上用props进行声明，这时可在子组件上使用 -->
+
+<!--   子组件 -> 父组件 传值 -->
+<!-- 父组件身上定义接收函数，在子组件上调用发送函数($emit)，在子组件上定义接收函数(v-on:)，在子组件引用处添加触发条件 -->
+
+<body>
+  <div id="app">
+    <!-- 第四步 将发送函数和接收函数绑定,注意绑定时为时事件绑定@ -->
+    <com1 @func='getMsgFromSon(msg)'></com1>
+  </div>
+
+  <template id="temp">
+    <div>
+      <!-- 第三步 -->
+      <input type="button" value="向父组件传递消息" @click="sendMsg">
+    </div>
+  </template>
+
+
+  <script>
+
+    var com1 = {
+      template: '#temp',
+      data() {
+        return {
+          msg: '做一个孝顺的孩子，给爸爸去花',
+        }
+      },
+      methods: {
+        // 第二步 发送函数，使用$emit 触发
+        sendMsg() {
+          this.$emit('func', this.msg)
+        }
+      },
+    }
+
+    var vm = new Vue({
+      data: {
+        msgFormSon: ''
+      },
+      methods: {
+        // 第一步  定义接收函数
+        getMsgFromSon(data) {
+          this.msgFormSon = data
+          console.log(this.msgFormSon)
+        }
+      },
+      components: {
+        com1
+      },
+    }).$mount('#app')
+
+  </script>
+</body>
+
+</html>

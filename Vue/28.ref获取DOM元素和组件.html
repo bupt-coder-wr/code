@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang=>
+
+<head>
+  <meta charset='utf-8'>
+  <script src="lib/vue-2.4.0.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="button" value="获取文本" @click="getElement">
+    <h3 ref="myh3">今天是个好天气</h3>
+    <input type="button" value="获取子组件数据" @click="getData">
+    <login ref="mylogin"></login>
+  </div>
+  <script>
+    var login = {
+      template: '<h2>我是子组件</h2>',
+      data() {
+        return {
+          msg: 'son msg'
+        }
+      },
+      methods: {
+        show() {
+          console.log("我是子组件的方法")
+        }
+      }
+    }
+    var vm = new Vue({
+      el: '#app',
+      data: {},
+      methods: {
+        getElement() {
+          // 原生JS
+          //console.log(document.getElementById('myh3').innerText)
+          // 使用Vue  ref是单词 【reference】 的缩写
+          // 在元素上的ref不带s  在引用的时候需要带s
+          console.log(this.$refs.myh3.innerText)
+        },
+        getData() {
+          // 通过refs获取到子组件  可以在父组件上调用子组件的属性和方法
+          console.log(this.$refs.mylogin.msg)
+          this.$refs.mylogin.show()
+        }
+      },
+      components: {
+        login,
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='./lib/vue-2.4.0.js'></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myVue">
+        <p v-once>my name : {{name}}</p>
+        <p v-html="age"></p>
+    </div>
+    <script>
+        new Vue({
+            el: '#myVue',
+            data: {
+                name: 'wr',
+                age: '<h1>19</h1>',
+                gender: 'male'
+            }
+        })
+    </script>
+</body>
+
+</html>

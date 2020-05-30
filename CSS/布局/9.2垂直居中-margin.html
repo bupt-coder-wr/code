@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      position: relative;
+      margin: auto;
+      width: 1000px;
+      height: 800px;
+
+      background-color: brown;
+    }
+
+    #child {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: yellowgreen;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <div id="child"></div>
+  </div>
+  <script>
+    var box = document.getElementById('box');
+    box.onclick = function (e) {
+      console.log(e.currentTarget == this)
+      console.log(e.target == this)
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      background-color: aqua;
+      height: 800px;
+      min-width: 1000px;
+    }
+
+    #left {
+      float: left;
+      width: 200px;
+      height: 100%;
+      background-color: red;
+    }
+
+    #mid {
+      float: left;
+      width: 300px;
+      height: 100%;
+      background-color: yellowgreen;
+    }
+
+    #right {
+      height: 100%;
+      margin-left: 500px;
+      background-color: slategray;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 三栏分布，左中固定，右边自适应 -->
+  <div id="box">
+    <div id="left"></div>
+    <div id="mid"></div>
+    <div id="right"></div>
+  </div>
+</body>
+
+</html>

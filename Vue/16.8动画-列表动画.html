@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang=>
+
+<head>
+    <meta charset='utf-8'>
+    <script src='./lib/vue-2.4.0.js'></script>
+    <script src=></script>
+    <title>Document</title>
+    <style>
+        li {
+            border: 1px dashed #999;
+            margin: 5px;
+            line-height: 35px;
+            padding-left: 5px;
+            width: 100%;
+        }
+
+        li:hover {
+            background-color: pink;
+            transition: all 0.4s ease;
+        }
+
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateY(80px);
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.6s ease;
+        }
+        /* 下面的 v-move  和 v-leave-active配合使用  能够实现后续的元素  渐渐地飘上去的效果 */
+        .v-move{
+            transition: all 0.6s ease;
+
+        }
+        .v-leave-active{
+            position:absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <label for="id">
+                ID:
+                <input type="text" id="id" v-model="id">
+            </label>
+            <label for="name">
+                Name:
+                <input type="text" id="name" v-model="name">
+            </label>
+            <span><input type="button" value="添加" @click='add' focus></span>
+        </div>
+        <!-- <ul> -->
+            <!-- 在实现列表过得的时候  如果需要过度的元素  是通过v-for  
+                循环渲染出来的  不能使用 transition 包裹  需要使用transitionGroup -->
+            <!-- 如果要为v-for循环创建的元素设置动画  必须要为每一个元素设置 ：key属性 -->
+            <!-- 给transitionGoup添加属性  appear 属性  实现页面刚展示出来时候  入场时候的效果 -->
+
+            <!-- 通过transition-goup元素  设置tag属性 指定transition-goup  渲染为指定的元素  如果不指定tag属性  默认渲染为span属性 -->
+            <transition-group appear tag="ul">
+                <li v-for="(item,index) in list" @click='del(index)' :key="item.id">
+                    {{item.id}}----{{item.name}}
+                </li>
+            </transition-group>
+
+        <!-- </ul> -->
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                id: '',
+                name: '',
+                list: [{
+                    id: 1,
+                    name: '赵高'
+                }, {
+                    id: 2,
+                    name: '秦桧'
+                }, {
+                    id: 3,
+                    name: '严嵩'
+                }, {
+                    id: 4,
+                    name: '魏忠贤'
+                }]
+            },
+            methods: {
+                add() {
+                    this.list.push({
+                        id: this.id,
+                        name: this.name
+                    })
+                },
+                del(i) {
+                    this.list.splice(i, 1)
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

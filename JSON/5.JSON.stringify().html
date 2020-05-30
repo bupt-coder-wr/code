@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p id="obj"></p>
+        <p id="arrary"></p>
+        <p id="func"></p>
+        <p id="func2"></p>
+    </div>
+    <script>
+        //语法 JSON.stringify(value[, replacer[, space]])
+        //value 必须 要转换的JavaScript值
+        //replacer 可选 用于转换结果的函数或数组
+        //spacce 可选 文本进行缩进 空格 和换行符
+
+        //JavaScript对象转换
+        var obj = {
+            "name": "runoob",
+            "alexa": 10000,
+            "site": "www.runoob.com"
+        }
+        var myJSON = JSON.stringify(obj)
+        document.getElementById('obj').innerHTML = myJSON
+
+        //JavaScript数组转换
+        var arrary = ["Google", "Runoob", "Taobao", "Facebook"]
+        var myJSON = JSON.stringify(arrary)
+        document.getElementById('arrary').innerHTML = myJSON
+
+        //解析函数
+        //JSON不允许包含函数  JSON。stringify（）会删除 JavaScript对象的函数，包含key和value
+        var obj = {
+            "name": "Runoob",
+            "alexa": function () {
+                return 10000;
+            },
+            "site": "www.runoob.com"
+        }
+        var myJSON = JSON.stringify(obj)
+        document.getElementById('func').innerHTML = myJSON
+
+        //可以在执行JSON。stringify函数前将将函数转换为字符串避免
+        obj.alexa = obj.alexa.toString();
+        var myJSON = JSON.stringify(obj);
+        document.getElementById("func2").innerHTML = myJSON;
+    </script>
+</body>
+
+</html>

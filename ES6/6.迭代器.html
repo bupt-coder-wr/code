@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //迭代器  使用Symbol.iterator 创建迭代器 指向当前数据结构的起始位置
+    //使用next方法进行迭代器指向下一个位置  返回当前位置对象，包含两属性value和done
+    //value是当前属性的 值  done判断是否遍历结束
+    let num = ['zero', 'one', 'two', 'three'];
+    const item = num[Symbol.iterator]()
+    console.log(item.next())
+    console.log(item.next())
+    console.log(item.next())
+    // 可迭代的数据结构  Array String Map Set Dom...
+    for (const c of 'asddfg') {
+        console.log(c);
+    }
+
+    //for..of循环 for..in循环  forEach循环
+    //可迭代的数据结构  Array String Map Set  
+    
+    for(var i of num){
+        
+    }
+    console.log(i)
+
+</script>
+
+</html>

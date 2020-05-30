@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./lib/vue-2.4.0.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h4>{{ msg }}</h4>
+        <!-- ！！！双向数据绑定的原理！！！ -->
+        <!-- 使用 v-model 实现表单元素（view层）和model层中元素的双向数据绑定 -->
+        <!-- 注意: v-model 只能运用在表单元素中 -->
+        <!-- input(text,radio,address,email...), select, checkbox, textarea, -->
+
+        <!-- v-bind只能实现数据的单向绑定 从model层->view层 -->
+        <input type="text" v-bind:value="msg" style="width: 100%" v-model="msg">
+
+
+    </div>
+    <br>
+    <div id="app1">
+        <input type="radio" value="one" id="one" v-model="Picked">
+        <label for="one">One</label><br>
+        <input type="radio" value="two" id="two" v-model="Picked">
+        <label for="two">Two</label><br>
+        <span> Picked:{{Picked}} </span>
+    </div>
+    <br>
+    <div id="app2">
+        <select v-model="selected" >
+            <option value="请选择" disabled>请选择</option>
+            <option value="aa">A</option>
+            <option value="bb">B</option>
+            <option value="cc">C</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+    </div>
+
+    <div id="app3">
+        <select v-model='selected'>
+            <option v-for="item in options" v-bind:value="item.value"> {{item.text}} </option>
+        </select>
+        <span> Select: {{selected}} </span>
+    </div>
+
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "大家都是好学生，爱学习"
+            }
+        })
+        new Vue({
+            el: '#app1',
+            data: {
+                Picked: '',
+            }
+        })
+        new Vue({
+            el: '#app2',
+            data: {
+                selected: '',
+            }
+        })
+
+        new Vue({
+            el: '#app3',
+            data: {
+                selected: 'A',
+                options: [{
+                    'text': 'One',
+                    'value': 'A'
+                }, {
+                    'text': 'two',
+                    'value': 'B'
+                }, {
+                    'text': 'three',
+                    'value': 'C'
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>

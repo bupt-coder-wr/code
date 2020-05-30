@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./lib/vue-2.4.0.js"></script>
+    <title>Document</title>
+    <style>
+        .inner {
+            height: 150px;
+            background-color: darkcyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="inner" @click="divHanler">
+            <!-- 使用.stop阻止冒泡  w3c为e.stopPropagation()  ie为e.cancelBubble()-->
+            <input type="button" value="戳它" @click.stop="btnHandle">
+        </div><br>
+
+        <div>
+            <!-- 使用.prevent阻止默认行为 w3c是e.preventDefault()，IE是e.returnValue = false;-->
+            <a href="https://www.baidu.com" @click.prevent="linkClick">有问题，去百度</a>
+        </div><br>
+
+        <div class="inner" @click.capture="divHanler">
+            <!-- 使用.capture捕获机制，先触发 -->
+            <input type="button" value="戳它" @click="btnHandle">
+        </div> <br>
+
+        <div class="inner" @click.self="divHanler">
+            <!-- 使用.self 实现只有点击当前元素时候，才会触发事件处理函数 -->
+            <input type="button" value="戳它.self" @click="btnHandle">
+        </div><br>
+
+        <div>
+            <!-- .once 只触发一次 -->
+            <a href="https://www.baidu.com" @click.prevent.once="linkClick">有问题，去百度</a>
+        </div><br>
+
+        <!-- .self只阻止自己的事件，不阻止其他事件 -->
+        
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+                divHanler() {
+                    alert("这里触发了 inner div 的点击事件 ")
+                },
+                btnHandle() {
+                    alert("这里触发了 btn 按钮的点击事件")
+                },
+                linkClick() {
+                    alert("这里触发了点击链接事件")
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
