@@ -1,4 +1,7 @@
-function transformName(strName) {
+/**
+ * didi面试题
+ */
+const transformName = (strName) => {
   if (!strName.length) return;
   let arr = strName.split("_");
   if (arr.length === 1) return strName;
@@ -9,6 +12,5 @@ function transformName(strName) {
     result += temp;
   }
   return result;
-}
-console.log(transformName('wang_run_is_good_man'));
-
+};
+console.log(transformName("wang_run_is_good_man"));
