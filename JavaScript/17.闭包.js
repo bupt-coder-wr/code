@@ -1,3 +1,6 @@
+/**
+ * 闭包定义： 是指内部函数总是可以访问其所在的外部函数中声明的变量和参数，即使在其外部函数被返回（寿命终结）了之后。
+ */
 // 原函数
 const fn1 = () => {
   for (var i = 0; i < 5; i++) {
@@ -43,11 +46,12 @@ const fn4 = () => {
 };
 
 function fn5() {
-  let num = 5;
-  console.log(this);
+  let num = 0;
   return function () {
-    return ++num;
+    return num++;
   };
 }
-fn5()();
-console.log(fn5()());
+const f = fn5();
+console.log(f());
+console.log(f());
+console.log(f());
