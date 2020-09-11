@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <p id="name"></p>
-        <p id="age"></p>
-        <p id="gender"></p>
-        <p id="flag"></p>
+      <p id="name"></p>
+      <p id="age"></p>
+      <p id="gender"></p>
+      <p id="flag"></p>
     </div>
     <script>
-        var JSONObject = {
-            'name':'van',
-            'age':12,
-            'gender':'male'
-        }
-        var jsonBoolean = {'flag':true}
-        document.getElementById('name').innerHTML = JSONObject.name
-        document.getElementById('age').innerHTML = JSONObject.age
-        document.getElementById('gender').innerHTML = JSONObject.gender
-        document.getElementById('flag').innerHTML = jsonBoolean.flag
+      var JSONObject = {
+        name: "van",
+        age: 12,
+        gender: "male",
+      };
+      var jsonBoolean = { flag: true };
+      document.getElementById("name").innerHTML = JSONObject.name;
+      document.getElementById("age").innerHTML = JSONObject.age;
+      document.getElementById("gender").innerHTML = JSONObject.gender;
+      document.getElementById("flag").innerHTML = jsonBoolean.flag;
     </script>
-</body>
+  </body>
 </html>

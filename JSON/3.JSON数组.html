@@ -1,58 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        var myJson = {
-            'name': '网站',
-            'num': 3,
-            'sites': ['google', 'runoob', 'taobao']
+      var myJson = {
+        name: "网站",
+        num: 3,
+        sites: ["google", "runoob", "taobao"],
+      };
+
+      //循环数组 for for..in
+      for (i in myJson.sites) {
+        document.write(myJson.sites[i] + "<br>");
+      }
+      document.write("<br>");
+
+      //嵌套JSON对象中的数组
+      myObj = {
+        name: "网站",
+        num: 3,
+        sites: [
+          {
+            name: "Google",
+            info: ["Android", "Google 搜索", "Google 翻译"],
+          },
+          {
+            name: "Runoob",
+            info: ["菜鸟教程", "菜鸟工具", "菜鸟微信"],
+          },
+          {
+            name: "Taobao",
+            info: ["淘宝", "网购"],
+          },
+        ],
+      };
+      for (i in myObj.sites) {
+        document.write(myObj.sites[i].name + "-----");
+        for (j in myObj.sites[i].info) {
+          document.write(myObj.sites[i].info[j] + "--");
         }
+        document.write("<br>");
+      }
 
-        //循环数组 for for..in
-        for (i in myJson.sites) {
-            document.write(myJson.sites[i] + '<br>')
-        }
-        document.write('<br>')
+      //修改数组值
 
-        //嵌套JSON对象中的数组
-        myObj = {
-            "name": "网站",
-            "num": 3,
-            "sites": [{
-                    "name": "Google",
-                    "info": ["Android", "Google 搜索", "Google 翻译"]
-                },
-                {
-                    "name": "Runoob",
-                    "info": ["菜鸟教程", "菜鸟工具", "菜鸟微信"]
-                },
-                {
-                    "name": "Taobao",
-                    "info": ["淘宝", "网购"]
-                }
-            ]
-        }
-        for (i in myObj.sites) {
-            document.write(myObj.sites[i].name + '-----')
-            for (j in myObj.sites[i].info) {
-                document.write(myObj.sites[i].info[j] + '--')
-            }
-            document.write('<br>')
-        }
-
-        //修改数组值
-
-
-        //删除数组元素
+      //删除数组元素
     </script>
-</body>
-
+  </body>
 </html>
