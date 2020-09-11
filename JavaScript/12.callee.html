@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        function calleeLengthDemo(arg1, arg2) {
-            alert(arguments.callee.toString());
-            if (arguments.length == arguments.callee.length) {
-                window.alert("验证形参和实参长度正确！");
-                return;
-            } else {
-                alert("实参长度：" + arguments.length);
-                alert("形参长度： " + arguments.callee.length);
-            }
+      function calleeLengthDemo(arg1, arg2) {
+        alert(arguments.callee.toString());
+        if (arguments.length == arguments.callee.length) {
+          window.alert("验证形参和实参长度正确！");
+          return;
+        } else {
+          alert("实参长度：" + arguments.length);
+          alert("形参长度： " + arguments.callee.length);
         }
-        calleeLengthDemo(1,2);
+      }
+      calleeLengthDemo(1, 2);
     </script>
-</body>
-
+  </body>
 </html>
