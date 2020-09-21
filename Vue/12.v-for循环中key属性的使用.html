@@ -23,7 +23,7 @@
         <!-- key在使用的时候  必须使用v-bind进行属性绑定的形式  指定key的值 -->
         <!-- 在组件中使用v-for 循环的时候  如果v-for有问题  必须使用 :key 进行绑定 -->
         <input type="button" value="添加" @click="add">
-        <p v-for="item in list" :key="item.id">
+        <p v-for="item in list" >
             <input type="checkbox">
             {{ item.id }}--{{ item.name }}
         </p>
