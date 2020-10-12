@@ -2,11 +2,10 @@
 <html lang=>
 
 <head>
-    <meta charset='utf-8'>
-    <script src='./lib/vue.js'></script>
-    <script src=></script>
-    <title>Document</title>
-    <style>
+  <meta charset='utf-8'>
+  <script src='./lib/vue.js'></script>
+  <title>Document</title>
+  <style>
         .ball {
             width: 15px;
             height: 15px;
@@ -41,13 +40,13 @@
                 beforeEnter(el) {
                     //beforeEnter  表示动画入场之前  此时  动画尚未开始  在  beforeEnter 中   设置元素开始动画之前的起始样式
                     // 设置小球开始动画之前的 起始位置
-                    el.style.transform = 'translate(0,0)'
+                    el.style.transform = 'translate(100px,100px)'
                 },
                 enter(el, done) {
                     //这句话没有实际作用
                     el.offsetHeight
                     //表示动画开始之后的样式  可以设置小球完成动画之后的  结束状态
-                    el.style.transform = 'translate(150px,450px)'
+                    el.style.transform = 'translate(500px,500px)'
                     el.style.transition = 'all 1s ease'
                     //这里的done()起始就是afterEnter（）的引用
                     done()
