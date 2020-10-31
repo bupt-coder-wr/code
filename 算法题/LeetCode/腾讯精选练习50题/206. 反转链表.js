@@ -1,16 +1,8 @@
 /**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @return {ListNode}
+ * 反转一个单链表。
  */
 // 递归反转
-var reverseList = function(head) {
+var reverseList = function (head) {
   // 1. 求解基本问题
   if (head === null || head.next === null) return head;
   let res = reverseList(head.next);
@@ -20,7 +12,7 @@ var reverseList = function(head) {
 };
 
 // 循环反转
-var reverseList = function(head) {
+var reverseList = function (head) {
   if (!head || !head.next) return head;
   let pre = null;
   while (head) {
