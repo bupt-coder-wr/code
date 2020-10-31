@@ -1,4 +1,5 @@
 /**
+ * 2020.10.31
  * 反转一个单链表。
  */
 // 递归反转
@@ -11,15 +12,20 @@ var reverseList = function (head) {
   return res;
 };
 
-// 循环反转
+/**
+ * pre永远在cur和next的前面
+ * next的作用为占位，防止cur.next丢失
+ */
 var reverseList = function (head) {
   if (!head || !head.next) return head;
   let pre = null;
-  while (head) {
-    var next = head.next;
-    head.next = pre;
-    pre = head;
-    head = next;
+  let cur = head;
+  let next = head;
+  while (cur) {
+    next = cur.next;
+    cur.next = pre;
+    pre = cur;
+    cur = next;
   }
   return pre;
 };
