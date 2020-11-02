@@ -1,51 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        var myObj1 = {
-            'name': 'runoob',
-            'alexa': 10000,
-            'site': null,
-        }
-        //访问对象  使用 . 访问  或者  使用([])访问 
-        document.write(myObj1.name + '<br>')
-        document.write(myObj1['alexa'] + '<br><br>')
+      var myObj1 = {
+        name: "runoob",
+        alexa: 10000,
+        site: null,
+      };
+      //访问对象  使用 . 访问  或者  使用([])访问
+      document.write(myObj1.name + "<br>");
+      document.write(myObj1["alexa"] + "<br><br>");
 
-        //使用for in 来循环对象的属性
-        for (item in myObj1) {
-            document.write(myObj1[item] + '<br>')
-        }
+      //使用for in 来循环对象的属性
+      for (item in myObj1) {
+        document.write(myObj1[item] + "<br>");
+      }
 
-        //嵌套JSON对象
-        myObj2 = {
-            "name": "runoob",
-            "alexa": 10000,
-            "sites": {
-                "site1": "www.runoob.com",
-                "site2": "m.runoob.com",
-                "site3": "c.runoob.com"
-            }
-        }
-        document.write(myObj2.sites['site1'] + '<br><br>')
+      //嵌套JSON对象
+      myObj2 = {
+        name: "runoob",
+        alexa: 10000,
+        sites: {
+          site1: "www.runoob.com",
+          site2: "m.runoob.com",
+          site3: "c.runoob.com",
+        },
+      };
+      document.write(myObj2.sites["site1"] + "<br><br>");
 
-        //修改值  使用 . 或者 ([])  修改
-        myObj1.name = 'van'
-        document.write(myObj1.name + '<br><br>')
+      //修改值  使用 . 或者 ([])  修改
+      myObj1.name = "van";
+      document.write(myObj1.name + "<br><br>");
 
-        //删除对象属性  使用delete关键字删除
-        delete myObj1.site
-        for (item in myObj1) {
-            document.write(myObj1[item] + '<br>')
-        }
+      //删除对象属性  使用delete关键字删除
+      delete myObj1.site;
+      for (item in myObj1) {
+        document.write(myObj1[item] + "<br>");
+      }
     </script>
-</body>
-
+  </body>
 </html>

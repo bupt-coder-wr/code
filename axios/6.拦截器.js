@@ -1,4 +1,4 @@
-const axios = require('axios')
+const axios = require('./node_modules/axios')
 
 let myInterceptor = axios.interceptors.request.use(config => {  // 请求拦截器
   // Do something before request is sent

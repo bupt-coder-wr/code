@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <style>
-    
-    </style>
-</head>
+    <style></style>
+  </head>
 
-<body>
+  <body>
     <ul id="parent">
-        <li>这是第一条</li>
-        <li>这是第二条</li>
-        <li>这是第三条</li>
-        <li>这是第四条</li>
+      <li>这是第一条</li>
+      <li>这是第二条</li>
+      <li>这是第三条</li>
+      <li>这是第四条</li>
     </ul>
     <script>
-        var parent = document.getElementById("parent");
-        parent.onclick = function (event) {
-            var e = event.target; //e为选中的li元素
-            parent.removeChild(e);
-            alert(e.firstChild.nodeValue);
-        }
+      var parent = document.getElementById("parent");
+      parent.onclick = function (event) {
+        var e = event.target; //e为选中的li元素
+        parent.removeChild(e);
+        alert(e.firstChild.nodeValue);
+      };
     </script>
-</body>
-
+  </body>
 </html>

@@ -1,52 +1,48 @@
 <!DOCTYPE html>
-<html lang=>
-
-<head>
-    <meta charset='UTF-8'>
-    <script src="./lib/vue-2.4.0.js"></script>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="./lib/vue.js"></script>
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="app">
-        <my-conter></my-conter>
-        <hr>
-        <my-conter></my-conter>
-        <hr>
-        <my-conter></my-conter>
+      <myconter></myconter>
+      <hr />
+      <myconter></myconter>
+      <hr />
+      <myconter></myconter>
     </div>
 
     <template id="temp1">
-        <div>
-            <p>这是一个计数器组件，每当点击按钮，计数器+1</p>
-            <input type="button" value="点击+1" @click="add">
-            <h3>{{ conter }}</h3>
-        </div>
-
-
+      <div>
+        <p>这是一个计数器组件，每当点击按钮，计数器+1</p>
+        <input type="button" value="点击+1" @click="add" />
+        <h3>{{ conter }}</h3>
+      </div>
     </template>
-    
-    <script>
-        var dataObj = { conter: 0 }
-        Vue.component('myConter', {
-            template: '#temp1',
-            data: function () {
-                return {
-                    conter: 0
-                }
-            },
-            methods: {
-                add() {
-                    this.conter++
-                }
-            }
-        })
-        var vm = new Vue({
-            el: '#app',
-            data: {},
-            methods: {}
-        });
-    </script>
-</body>
 
+    <script>
+    //   let dataObj = { conter: 0 };
+      Vue.component("myconter", {
+        template: "#temp1",
+        data: dataObj,
+        data() {
+          return {
+            conter: 0,
+          };
+        },
+        methods: {
+          add() {
+            this.conter++;
+          },
+        },
+      });
+
+      var vm = new Vue({
+        el: "#app",
+      });
+    </script>
+  </body>
 </html>

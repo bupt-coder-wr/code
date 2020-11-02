@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        var object = {
-            name: "van",
-            age: 20,
-            gender: "male",
-            parent: [{
-                relative: "father",
-                age: 50
-            }, {
-                realtive: "mother",
-                age: 48
-            }]
+      var object = {
+        name: "van",
+        age: 20,
+        gender: "male",
+        parent: [
+          {
+            relative: "father",
+            age: 50,
+          },
+          {
+            realtive: "mother",
+            age: 48,
+          },
+        ],
+      };
+      // stringify后可跟一个数组参数，用于过滤字符串
+      var jsonArray = JSON.stringify(object, ["name", "age"]);
+      console.log(jsonArray);
+      var objData = JSON.parse(jsonArray);
+      console.log(objData);
+      console.log(object);
+
+      //stringify后可跟一个函数参数，用于处理序列化的对象的属性  可以更改对象属性值
+      var jsonFunc = JSON.stringify(object, function (key, value) {
+        switch (key) {
+          case "age":
+            return 88;
+          case "name":
+            return "Van";
+          default:
+            return value;
         }
-        // stringify后可跟一个数组参数，用于过滤字符串
-        var jsonArray = JSON.stringify(object, ['name', 'age']);
-        console.log(jsonArray);
-        var objData = JSON.parse(jsonArray);
-        console.log(objData);
-        console.log(object);
+      });
+      console.log(jsonFunc);
 
-        //stringify后可跟一个函数参数，用于处理序列化的对象的属性  可以更改对象属性值
-        var jsonFunc = JSON.stringify(object, function (key, value) {
-            switch (key) {
-                case "age":
-                    return 88
-                case "name":
-                    return "Van"
-                default:
-                    return value;
-            }
-        });
-        console.log(jsonFunc);
-
-        //stringify后可跟第三个参数，用于控制结果中的缩进和空白符
-        //此时的null表示过滤参数为空
-        var jsonBlock = JSON.stringify(object, null, 4);
-        console.log(jsonBlock);
+      //stringify后可跟第三个参数，用于控制结果中的缩进和空白符
+      //此时的null表示过滤参数为空
+      var jsonBlock = JSON.stringify(object, null, 4);
+      console.log(jsonBlock);
     </script>
-</body>
-
+  </body>
 </html>
