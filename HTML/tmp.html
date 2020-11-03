@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="whiteTop" style="display: flex; flex-wrap: nowrap;">
+      <!--白色顶部-->
+      <div class="container">
+        <div class="hw">
+        </div>
+        <div class="whiteTopCenter">
+          <div class="classifyPart1">
+            <div class="classify" id="tab1">
+              <!--手机、笔记本&平板...-->
+              <p>
+                手机、笔记本&平板...
+                <i class="fa fa-angle-down"></i>
+              </p>
+            </div>
+            <div class="classify" id="tab2">
+              <!--解决方案&服务-->
+              <p>
+                解决方案&服务
+                <i class="fa fa-angle-down"></i>
+              </p>
+            </div>
+          </div>
+          <div class="classifyPart2">
+            <!--华为商城 华为云-->
+            <div class="classify">
+              <p>华为商城</p>
+            </div>
+            <div class="classify">
+              <p>华为云</p>
+            </div>
+          </div>
+        </div>
+        <div class="search">
+          <div class="searchOpen">
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
+        <div style="height: 1000px;"></div>
+      </div>
+    </div>
+    <script>
+      $(window).scroll(function () {
+        var scrollY = $(document).scrollTop();
+        var scrollYY = 0;
+        if (scrollY > 30) {
+          $(".whiteTop").css("position", "fixed");
+          $(".whiteTop").css("top", "0");
+          $(".whiteTop").css("z-index", "1");
+        } else {
+          $(".whiteTop").css("position", "absolute");
+          $(".whiteTop").css("top", "30px");
+        }
+        setTimeout(function () {
+          var scrollYY = $(document).scrollTop();
+          if (scrollYY > scrollY) {
+            scrollY = scrollYY;
+            $(".whiteTop").hide();
+          } else {
+            scrollY = scrollYY;
+            $(".whiteTop").show();
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
