@@ -16,26 +16,16 @@
       var box = document.getElementById("box");
 
       box.onmousedown = function (e) {
-        // console.log('mousedown');
-
         var x = e.clientX - box.offsetLeft;
         var y = e.clientY - box.offsetTop;
-        // console.log(x, y);
-
         document.onmousemove = function (e) {
-          // console.log('onmousemove');
           var left = e.clientX - x;
           var top = e.clientY - y;
-          // console.log(left, top)
-          // 赋值没有生效   解决：缺少定位
           box.style.left = left + "px";
           box.style.top = top + "px";
         };
-
         document.onmouseup = function () {
-          // console.log('onmouseup');
           document.onmousemove = null;
-          // document.onmouseup = null;
         };
       };
     };

@@ -1,5 +1,6 @@
 /**
  * 给定一个 没有重复 数字的序列，返回其所有可能的全排列。
+<<<<<<< HEAD
  **/
 var permute = function (nums) {
   let res = [];
@@ -25,3 +26,7 @@ var permute = function (nums) {
 };
 
 permute([1, 2, 3, 4]);
+=======
+ */
+var permute = function (nums) {};
+>>>>>>> 234770e6af22e0845f888efc4f02d6a0379b51ef

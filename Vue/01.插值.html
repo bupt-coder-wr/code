@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src='./lib/vue-2.4.0.js'></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="./lib/vue.js"></script>
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="myVue">
-        <p v-once>my name : {{name}}</p>
-        <p v-html="age"></p>
+      <p v-once>my name : {{name}}</p>
+      <p v-html="age"></p>
+      <div style="height: 1000px;"></div>
     </div>
     <script>
-        new Vue({
-            el: '#myVue',
-            data: {
-                name: 'wr',
-                age: '<h1>19</h1>',
-                gender: 'male'
+      new Vue({
+        el: "#myVue",
+        data: {
+          name: "wr",
+          age: "<h1>19</h1>",
+          gender: "male",
+        },
+        mounted() {
+          window.addEventListener("scroll", this.handleScroll, true);
+          // 监听（绑定）滚轮 滚动事件
+        },
+        methods: {
+          handleScroll() {
+            // 页面滚动距顶部距离
+            var scrollTop =
+              window.pageYOffset ||
+              document.documentElement.scrollTop ||
+              document.body.scrollTop;
+            var scroll = scrollTop - this.i;
+            this.i = scrollTop;
+            if (scroll < 0) {
+              console.log("up");
+              //添加你想要的事件
+            } else {
+              //添加你想要的事件
+              console.log("down");
             }
-        })
+          },
+        },
+      });
     </script>
-</body>
-
+  </body>
 </html>
