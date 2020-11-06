@@ -30,7 +30,6 @@
     </ul>
     <img
       src="./img/5.jpg"
-      alt="啊，图片出错了"
       width="500px"
       height="300px"
       id="pernode"
@@ -43,10 +42,6 @@
         function showPic(event) {
           var preNode = document.getElementById("pernode");
           var e = event.target;
-          alert(e.title);
-          // if (e.firstChild.title == null) {
-          //     return;
-          // }
           source = e.getAttribute("href");
           preNode.setAttribute("src", source);
           var text = document.getElementById("text");
