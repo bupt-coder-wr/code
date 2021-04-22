@@ -32,7 +32,6 @@
       var parent = document.getElementById("parent");
       var child = document.getElementById("child");
       child.style.left = "0px";
-      alert(child.style.left);
       var direction = 1; //1为向右移动 -1为向左移动
 
       function move() {
@@ -43,13 +42,13 @@
           direction *= -1;
         }
         if (parseInt(child.style.left) < 1100 && direction == 1) {
-          child.style.left = parseInt(child.style.left) + 50 + "px";
+          child.style.left = parseInt(child.style.left) + 1 + "px";
         }
         if (parseInt(child.style.left) > 0 && direction == -1) {
-          child.style.left = parseInt(child.style.left) - 50 + "px";
+          child.style.left = parseInt(child.style.left) - 1 + "px";
         }
       }
-      var moveId = setInterval(move, 200);
+      var moveId = setInterval(move, 1);
     </script>
   </body>
 </html>
