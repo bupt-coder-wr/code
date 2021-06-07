@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Router {
+        constructor() {
+          this.routes = {};
+          this.listerPopState();
+        }
+        init(path) {
+          history.replaceState({ path: path }, null, path);
+          this.routes[path] && this.routes[path]();
+        }
+        route(path, callback) {
+          this.routes[path] = callback;
+        }
+        push(path) {
+          history.pushState({ path: path }, null, path);
+          this.routes[path] && this.routes[path]();
+        }
+        listerPopState() {
+          window.addEventListener("popstate", (e) => {
+            const path = e.state && e.state.path;
+            this.routers[path] && this.routers[path]();
+          });
+        }
+      }
+      window.miniRouter = new Router();
+      miniRouter.route("/", () => console.log("page1"));
+      miniRouter.route("/page2", () => console.log("page2"));
+
+      // 跳转
+      miniRouter.push("/page2"); // page2
+    </script>
+  </body>
+</html>

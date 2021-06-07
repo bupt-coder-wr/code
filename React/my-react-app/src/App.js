@@ -1,9 +1,11 @@
 import Home from "./views/Home.jsx";
-
+import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <Home></Home>
+      <BrowserRouter>
+        <Home></Home>
+      </BrowserRouter>
     </div>
   );
 }
