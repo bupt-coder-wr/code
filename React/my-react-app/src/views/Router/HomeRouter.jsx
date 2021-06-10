@@ -1,11 +1,13 @@
-import React, { Component } from "react";
-import BasicExample from "./Router";
+import React, { Component, Fragment } from "react";
+// import BasicExample from "./Basic";
+import Hash from "./HashRouter";
 class HomeRouter extends Component {
   render() {
     return (
-      <div>
-        <BasicExample />
-      </div>
+      <Fragment>
+        {/* <BasicExample /> */}
+        <Hash />
+      </Fragment>
     );
   }
 }
