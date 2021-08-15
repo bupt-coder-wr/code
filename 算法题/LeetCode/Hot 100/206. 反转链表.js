@@ -17,10 +17,9 @@ var reverseList = function (head) {
  * next的作用为占位，防止cur.next丢失
  */
 var reverseList = function (head) {
-  if (!head || !head.next) return head;
-  let pre = null;
-  let cur = head;
-  let next = head;
+  let cur = head,
+    next = head,
+    pre = null;
   while (cur) {
     next = cur.next;
     cur.next = pre;
