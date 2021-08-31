@@ -7,6 +7,7 @@
 /**
  * C ((m + n - 2), (m - 1))
  */
+// dp
 var uniquePaths = function (m, n) {
   const rows_num = new Array(m).fill(1);
   for (let row = 1; row < n; row++) {
@@ -14,7 +15,6 @@ var uniquePaths = function (m, n) {
       rows_num[col] = rows_num[col - 1] + rows_num[col];
     }
   }
-
   return rows_num[m - 1];
 };
 // 动态规划

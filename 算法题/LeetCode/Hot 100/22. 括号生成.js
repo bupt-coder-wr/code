@@ -1,3 +1,4 @@
+// 68ms, 39.4MB
 var generateParenthesis = function (n) {
   let result = [];
   help("", 0, 0);

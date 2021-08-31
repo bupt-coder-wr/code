@@ -3,6 +3,8 @@
  * @param {number[][]} grid
  * @return {number}
  */
+// 76ms, 39.5MB
+// dp
 var minPathSum = function (grid) {
   let width = grid[0].length;
   let height = grid.length;
