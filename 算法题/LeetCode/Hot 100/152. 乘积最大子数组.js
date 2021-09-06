@@ -3,7 +3,9 @@
  * @param {number[]} nums
  * @return {number}
  */
+// dp
 var maxProduct = function (nums) {
+  if (nums.length === 1) return nums[0];
   let [max, imax, imin] = [0, 1, 1];
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] < 0) {

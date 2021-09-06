@@ -2,6 +2,8 @@
  * @param {character[][]} matrix
  * @return {number}
  */
+// 84ms, 41.6MB
+// dp
 var maximalSquare = function (matrix) {
   let height = matrix.length;
   let width = matrix[0].length;

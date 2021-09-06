@@ -20,16 +20,17 @@
       "program": "${workspaceRoot}/server/app.js"
     },
     {
-      "type": "node",
-      "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}\\Vue\\16.2-2服务端.js"
-    },
-    {
       "type": "chrome",
       "request": "launch",
       "name": "Launch Chrome against localhost",
       "url": "http://127.0.0.1:5500",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "pwa-msedge",
+      "request": "launch",
+      "name": "Launch Microsoft Edge and open the Edge DevTools",
+      "url": "http://localhost:8080",
       "webRoot": "${workspaceFolder}"
     }
   ]
