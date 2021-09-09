@@ -21,3 +21,30 @@ var rotateRight = function (head, k) {
   end.next = null;
   return tmpHead;
 };
+// 先把链表连成环，然后计算断开的位置
+var rotateRight = function (head, k) {
+  if (k === 0) return head;
+  if (head === null || head.next === null) return head;
+  let len = 0;
+  let cur = head,
+    res = null;
+  while (cur) {
+    len++;
+    if (cur.next === null) {
+      cur.next = head;
+      break;
+    } else {
+      cur = cur.next;
+    }
+  }
+  let move = len - (k % len);
+  while (move) {
+    if (move == 1) {
+      res = head.next;
+      head.next = null;
+    }
+    head = head.next;
+    move--;
+  }
+  return res;
+};

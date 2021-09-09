@@ -29,6 +29,6 @@ var spiralOrder = function (matrix) {
     }
     top++, bottom--, left++, right--;
   }
-  console.log(result)
+  console.log(result);
   return result;
 };

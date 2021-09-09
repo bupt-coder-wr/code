@@ -20,3 +20,15 @@ var kthSmallest = function (root, k) {
     midSearch(root.right, stack, k);
   }
 };
+
+var kthSmallest = function (root, k) {
+  let res = [];
+  const bts = (node) => {
+    if (!node) return;
+    bts(node.left);
+    res.push(node.val);
+    bts(node.right);
+  };
+  bts(root);
+  return res[k - 1];
+};

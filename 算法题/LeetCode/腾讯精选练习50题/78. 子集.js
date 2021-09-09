@@ -12,6 +12,7 @@
 var subsets = function (nums) {
   let result = [[]];
   for (let item of nums) {
+    // 注意：这里只能使用JSON的深拷贝方法
     tmp = JSON.parse(JSON.stringify(result));
     for (let subItem of result) {
       subItem.push(item);

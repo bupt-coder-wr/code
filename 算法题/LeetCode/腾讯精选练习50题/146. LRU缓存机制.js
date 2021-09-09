@@ -9,30 +9,36 @@
  */
 var LRUCache = function (capacity) {
   this.capacity = capacity;
-  this.obj = {};
-  this.getKey = [];
+  this.map = new Map();
 };
 
+/**
+ * @param {number} key
+ * @return {number}
+ */
 LRUCache.prototype.get = function (key) {
-  let value = -1;
-  if (this.obj[key]) {
-    this.getKey.splice(this.getKey.indexOf(key), 1);
-    this.getKey.push(key);
-    value = this.obj[key];
+  if (this.map.has(key)) {
+    const value = this.map.get(key);
+    this.map.delete(key);
+    this.map.set(key, value);
+    return value;
+  } else {
+    return -1;
   }
-  return value;
 };
 
+/**
+ * @param {number} key
+ * @param {number} value
+ * @return {void}
+ */
 LRUCache.prototype.put = function (key, value) {
-  let keyPosition = this.getKey.indexOf(key);
-  if (keyPosition > -1) {
-    this.getKey.splice(this.getKey.indexOf(key), 1);
-  } else {
-    if (Object.keys(this.obj).length >= this.capacity) {
-      delete this.obj[this.getKey[0]];
-      this.getKey.shift();
-    }
+  if (this.map.has(key)) {
+    this.map.delete(key);
   }
-  this.obj[key] = value;
-  this.getKey.push(key);
+  this.map.set(key, value);
+
+  if (this.map.size > this.capacity) {
+    this.map.delete(this.map.keys().next().value);
+  }
 };

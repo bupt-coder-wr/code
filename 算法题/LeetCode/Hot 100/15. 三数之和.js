@@ -39,3 +39,32 @@ var threeSum = function (nums) {
   }
   return res;
 };
+
+var threeSum2 = function (nums) {
+  nums.sort((a, b) => a - b);
+  let res = [];
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (nums[i] === nums[i - 1]) {
+      continue;
+    }
+    for (let j = i + 1, k = nums.length - 1; j < k; ) {
+      if (nums[i] + nums[j] + nums[k] === 0) {
+        res.push([nums[i], nums[j], nums[k]]);
+        j++;
+        k--;
+        while (nums[j] === nums[j - 1]) {
+          j++;
+        }
+        while (nums[k] === nums[k + 1]) {
+          k--;
+        }
+      } else if (nums[i] + nums[j] + nums[k] < 0) {
+        j++;
+      } else {
+        k--;
+      }
+    }
+  }
+  return res;
+};
+threeSum2([-2, 0, 1, 1, 2]);

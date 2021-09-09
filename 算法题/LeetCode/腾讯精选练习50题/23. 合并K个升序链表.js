@@ -25,3 +25,28 @@ var mergeKLists = function (lists) {
   }
   return head.next;
 };
+
+var mergeKLists = function (lists) {
+  if (lists.length === 0) return null;
+  if (lists.length === 1) return lists[0];
+
+  const mergeTwoList = (l1, l2) => {
+    let head = new ListNode(),
+      pre = head;
+    while (l1 && l2) {
+      if (l1.val > l2.val) {
+        pre.next = l2;
+        l2 = l2.next;
+      } else {
+        pre.next = l1;
+        l1 = l1.next;
+      }
+      pre = pre.next;
+    }
+    pre.next = l1 ? l1 : l2;
+    return head.next;
+  };
+
+  lists.splice(0, 2, mergeTwoList(lists[0], lists[1]));
+  return mergeKLists(lists);
+};
