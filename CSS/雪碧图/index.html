@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        border: 0;
+        padding: 0;
+      }
+      .outerBox {
+        position: relative;
+        width: 206px;
+        height: 116px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+      .van-framepreview {
+        position: absolute;
+        pointer-events: none;
+        /* width: 206px;
+        height: 116px; */
+        top: 0;
+        left: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: opacity 0.3s;
+        background: url("./sprite.jpg");
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outerBox">
+      <img id="img" class="img" src="./background.jpg" />
+      <div
+        id="van-framepreview"
+        style="width: 206px; height: 116px"
+        class="van-framepreview"
+      ></div>
+    </div>
+  </body>
+  <script>
+    const img = document.getElementById("img");
+    img.addEventListener("mouseenter", handleMouseEnter, false);
+    img.addEventListener("mousemove", handleMouseMove, false);
+    img.addEventListener("mouseleave", handleMouseLeave, false);
+    // 进入
+    function handleMouseEnter() {
+      console.log("enter");
+      const vanFramepreview = document.getElementById("van-framepreview");
+      vanFramepreview.style.opacity = 1;
+    }
+    // move
+    function handleMouseMove(event) {
+      //   console.log("event", event);
+      //   console.log("offsetX", event.offsetX);
+      const x = event.offsetX;
+      //   console.log("offsetY", event.offsetY);
+      const vanFramepreview = document.getElementById("van-framepreview");
+      X = Math.floor((10 * x) / 206) * 480 + "px";
+      console.log(X);
+      vanFramepreview.style["background-position"] = `-1854px 10px`;
+    }
+    // levae
+    function handleMouseLeave() {
+      console.log("leave");
+      const vanFramepreview = document.getElementById("van-framepreview");
+      vanFramepreview.style.opacity = 0;
+    }
+
+    // 节流函数
+    function throttle(cd, time = 300) {
+      var t = null;
+      return function () {
+        if (t) return;
+        t = setTimeout(() => {
+          cd.call(this);
+          t = null;
+        }, time);
+      };
+    }
+  </script>
+</html>
