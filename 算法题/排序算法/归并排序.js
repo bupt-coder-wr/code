@@ -3,17 +3,20 @@ function merge(arr, L, M, R) {
   let LEFT_SIZE = M - L;
   let RIGHT_SIZE = R - M + 1;
   // left, rigth 用于存放拷贝
-  let left = [];
-  let right = [];
+  // let left = [];
+  // let right = [];
 
-  // 1. fill in the left sub array  只是实现一个拷贝
-  for (let i = L; i < M; i++) {
-    left[i - L] = arr[i];
-  }
-  // 2. fill in the right sub array
-  for (let i = M; i <= R; i++) {
-    right[i - M] = arr[i];
-  }
+  // // 1. fill in the left sub array  只是实现一个拷贝
+  // for (let i = L; i < M; i++) {
+  //   left[i - L] = arr[i];
+  // }
+  // // 2. fill in the right sub array
+  // for (let i = M; i <= R; i++) {
+  //   right[i - M] = arr[i];
+  // }
+  let left = arr.slice(L, L + LEFT_SIZE);
+  let right = arr.slice(M);
+
   let i = 0,
     j = 0,
     k = L;

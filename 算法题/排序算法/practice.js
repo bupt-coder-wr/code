@@ -1,46 +1,36 @@
-// 合并
 function merge(arr, L, M, R) {
-  let LEFT_SIZE = M - L;
-  let RIGHT_SIZE = R - M + 1;
-  let left = [],
-    right = [];
+  let leftSize = M - L;
+  let rightSize = R - M + 1;
 
-  for (let i = L; i < M; i++) {
-    left[i - L] = arr[i];
-  }
-
-  for (let i = M; i <= R; i++) {
-    right[i - M] = arr[i];
-  }
+  let left = arr.slice(L, L + leftSize);
+  let right = arr.slice(M);
   let i = 0,
     j = 0,
     k = L;
-  while (i < LEFT_SIZE && j < RIGHT_SIZE) {
-    if (left[i] < right[j]) {
-      arr[k++] = left[i++];
-    } else {
+  while (i < leftSize && j < rightSize) {
+    if (left[i] > right[j]) {
       arr[k++] = right[j++];
+    } else {
+      arr[k++] = left[i++];
     }
   }
-  while (i < LEFT_SIZE) {
+  while (i < leftSize) {
     arr[k++] = left[i++];
   }
-  while (j < RIGHT_SIZE) {
+  while (j < rightSize) {
     arr[k++] = right[j++];
   }
 }
-
-// 分治
-function mergeSort(arr, L, R) {
-  if (L === R) {
+function mergeSort(arr, l, r) {
+  if (l == r) {
     return;
   } else {
-    let M = Math.floor((L + R) / 2);
-    mergeSort(arr, L, M);
-    mergeSort(arr, M + 1, R);
-    merge(arr, L, M + 1, R);
+    let m = parseInt((l + r) / 2);
+    mergeSort(arr, l, m);
+    mergeSort(arr, m + 1, r);
+    merge(arr, l, m + 1, r);
   }
 }
-let arr = [6, 2, 5, 10, 4, 8, 9, 7];
+let arr = [6, 2, 5, 10, 3, 4, 8, 9, 7, 1];
 mergeSort(arr, 0, arr.length - 1);
 console.log(arr);
