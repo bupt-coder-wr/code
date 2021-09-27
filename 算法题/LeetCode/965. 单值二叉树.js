@@ -9,14 +9,15 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-let val;
-var isUnivalTree = function(root) {
+var isUnivalTree = function (root) {
   if (!root) return true;
-  val = root.val;
+  const val = root.val;
+
+  const dfs = (root) => {
+    if (!root) return true;
+    if (root.val !== val) return false;
+    return dfs(root.left) && dfs(root.right);
+  };
+  
   return dfs(root);
 };
-function dfs(node) {
-  if (!node) return true;
-  if (node.val !== val) return false;
-  return dfs(node.left) && dfs(node.right);
-}
