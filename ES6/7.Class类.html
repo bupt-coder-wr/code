@@ -1,61 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
+  <body></body>
+  <script type="module">
+    // //通过class关键字定义类  本质为function
+    class Person {
+      //定义
+      //定义一个构造方法
+      constructor(name, age) {
+        console.log("父类构造方法");
+        this.name = name;
+        this.age = age;
+      }
+      //定义普通方法
+      getInfo() {
+        return `姓名:${this.name}; 年龄：${this.age}`;
+      }
+    }
+    //定义一个对象
+    let person = new Person("van", 10);
+    console.log(person);
+    console.log(person.getInfo());
 
-<body>
+    //用extends 实现继承
+    class BlackPerson extends Person {
+      constructor(name, age, height) {
+        super(name, age);
+        console.log("子类构造方法");
+        this.height = height;
+      }
+      //重写父类方法
+      getInfo() {
+        console.log("子类info");
+        return `姓名:${this.name}; 年龄：${this.age} 身高:${this.height}`;
+      }
+    }
+    let blackperson = new BlackPerson("laten", 21, 180);
+    console.log(blackperson.getInfo());
 
-</body>
-<script type="module">
-  // //通过class关键字定义类  本质为function
-  class Person { //定义
-    //定义一个构造方法
-    constructor(name, age) {
-      console.log('父类构造方法')
-      this.name = name;
-      this.age = age;
-    }
-    //定义普通方法
-    getInfo() {
-      return `姓名:${this.name}; 年龄：${this.age}`
-    }
-  }
-  //定义一个对象
-  let person = new Person('van', 10)
-  console.log(person)
-  console.log(person.getInfo())
-
-  //用extends 实现继承
-  class BlackPerson extends Person {
-    constructor(name, age, height) {
-      super(name, age);
-      console.log('子类构造方法')
-      this.height = height
-    }
-    //重写父类方法
-    getInfo() {
-      console.log('子类info')
-      return `姓名:${this.name}; 年龄：${this.age} 身高:${this.height}`
-    }
-  }
-  let blackperson = new BlackPerson('laten', 21, 180)
-  console.log(blackperson.getInfo())
-
-  //创建单例
-  let Simpleperson = new class {
-    constructor(name) {
-      this.name = name;
-    }
-    sayName() {
-      console.log(this.name)
-    }
-  }('wr')
-  Simpleperson.sayName()
-</script>
-
+    //创建单例
+    let Simpleperson = new (class {
+      constructor(name) {
+        this.name = name;
+      }
+      sayName() {
+        console.log(this.name);
+      }
+    })("wr");
+    Simpleperson.sayName();
+  </script>
 </html>
