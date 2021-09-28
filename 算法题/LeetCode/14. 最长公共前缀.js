@@ -1,26 +1,18 @@
 /**
+ * 2021/09.28
  * @param {string[]} strs
  * @return {string}
  */
+// 将原数组排序后，只需要比较第一个和最后一个即可
 var longestCommonPrefix = function (strs) {
-  if (strs.length === 0) return "";
-  if (strs.length === 1) return strs[0];
-  let pre = strs[0];
-  for (let i = 1; i < strs.length; i++) {
-    pre = lcp(pre, strs[i]);
+  if (!strs || strs.length === 0) return "";
+  strs.sort();
+  let s1 = strs[0],
+    s2 = strs[strs.length - 1];
+  let len = Math.min(s1.length, s2.length);
+  let i = 0;
+  for (i; i < len; i++) {
+    if (s1[i] !== s2[i]) break;
   }
-  return pre;
-
-  function lcp(s1, s2) {
-    let len = Math.min(s1.length, s2.length);
-    let count = 0;
-    for (let i = 0; i < len; i++) {
-      if (s1[i] === s2[i]) {
-        count++;
-      } else {
-        break;
-      }
-    }
-    return s1.slice(0, count);
-  }
+  return s1.slice(0, i);
 };

@@ -10,6 +10,7 @@ function maxLength(arr) {
   let max = 0;
   for (let right = 0; right < arr.length; right++) {
     if (map.has(arr[right])) {
+      // 不是 left = map.get(arr[i])
       left = Math.max(left, map.get(arr[right]));
     }
     max = Math.max(max, right - left);
