@@ -1,26 +1,12 @@
-import _ from "lodash";
-import printMe from "./print.js";
-import logo from "./1.png";
+import _, { divide } from "lodash";
+import "./style.css";
 
-console.log(logo);
+const myButton = document.createElement("button");
+myButton.innerHTML = "create";
+document.body.appendChild(myButton);
 
-function component() {
-  const element = document.createElement("div");
-  const btn = document.createElement("button");
-
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-
-  btn.innerHTML = "Click me and check the console!";
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
-
-  const myIcon = new Image();
-  myIcon.src = logo;
-
-  element.appendChild(myIcon);
-  console.log("123456");
-  return element;
-}
-
-document.body.appendChild(component());
+myButton.addEventListener("click", () => {
+  const item = document.createElement("div");
+  item.innerHTML = "item";
+  document.body.appendChild(item);
+});

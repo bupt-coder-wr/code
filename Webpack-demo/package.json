@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
+    "dashborad": "webpack-dashboard -- webpack",
     "watch": "webpack --watch",
-    "start": "webpack serve --open",
+    "start": "webpack-dev-server --open",
     "server": "node server.js"
   },
   "keywords": [],
@@ -22,7 +23,10 @@
     "webpack-cli": "^4.8.0"
   },
   "devDependencies": {
+    "css-loader": "^6.3.0",
+    "style-loader": "^3.3.0",
     "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-dashboard": "^3.3.6",
     "webpack-dev-server": "^4.3.0"
   }
 }
