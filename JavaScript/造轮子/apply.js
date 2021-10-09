@@ -1,6 +1,6 @@
 function myApply(context) {
   if (typeof context !== "function") {
-    throw new TypeError();
+    throw new TypeError("");
   }
   context = context || window;
   context.fn = this;

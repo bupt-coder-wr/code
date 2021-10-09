@@ -23,3 +23,11 @@ function coverter(obj) {
 }
 const obj = { a_asd_aw: 1, a: 2 };
 coverter(obj);
+
+function change(fn) {
+  return fn.replace(/-\w/g, function (x) {
+    return x.slice(1).toUpperCase();
+  });
+}
+
+console.log(change("get-element-by-id"));
