@@ -6,13 +6,10 @@
 var exist = function (board, word) {
   const height = board.length;
   const width = board[0].length;
-  const letters = word.split("");
-  const w = letters.length;
-  let visited = [];
-  for (let i = 0; i < height; i++) {
-    visited.push(Array(width));
-    visited[i].fill(0);
-  }
+  const w = word.length;
+  let visited = Array(height)
+    .fill(0)
+    .map(() => Array(width));
 
   for (let i = 0; i < height; i++) {
     // i 扫描行
@@ -33,7 +30,7 @@ var exist = function (board, word) {
       j < 0 ||
       i >= height ||
       j >= width ||
-      letters[k] !== board[i][j] ||
+      word[k] !== board[i][j] ||
       visited[i][j] === true
     ) {
       return false;
