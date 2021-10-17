@@ -47,6 +47,6 @@ function mergeSort(arr, L, R) {
   }
 }
 
-let arr = [6, 2, 5, 10, 4, 8, 9, 7];
+let arr = [6, 2, 5, 1, 3, 4, 8, 9, 7];
 mergeSort(arr, 0, arr.length - 1);
 console.log(arr);

@@ -1,3 +1,4 @@
+// https://www.runoob.com/w3cnote/selection-sort.html
 function findMaxPos(arr, n) {
   let max = arr[0];
   let pos = 0;
@@ -11,6 +12,7 @@ function findMaxPos(arr, n) {
 }
 
 function selectSort(arr, n) {
+  // 长度为n，最大下标应该为n-1
   while (n - 1) {
     let pos = findMaxPos(arr, n);
     let tmp = arr[pos];
