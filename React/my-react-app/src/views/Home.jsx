@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import Context from "./AdvancedUsage/Context";
+import Counter from "./Counter";
 // import Clock from "./Clock";
 // import LoginControl from "./Login/LoginControl";
 // import NameForm from "./NameForm";
@@ -20,6 +21,7 @@ class Home extends React.Component {
         <Reservation /> */}
         <HomeRouter />
         <Context />
+        <Counter initialCount={1} />
       </Fragment>
     );
   }
