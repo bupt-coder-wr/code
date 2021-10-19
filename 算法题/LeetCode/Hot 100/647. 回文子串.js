@@ -3,28 +3,18 @@
  * @param {*} s
  * @returns
  */
-// dp
 var countSubstrings = function (s) {
-  function isPalindromic(s, i, j) {
-    let l = i,
-      r = j;
-    if (l == r) return true;
-    while (l <= r && s[l] === s[r]) {
-      if (l == r) return true;
-      if (r - l == 1 && s[l] == s[r]) return true;
-      l++;
-      r--;
+  let res = 0;
+  function subString(s, i, j) {
+    while (i >= 0 && j < s.length && s[i] === s[j]) {
+      res++;
+      i--;
+      j++;
     }
-    return false;
   }
-
-  let count = 0;
   for (let i = 0; i < s.length; i++) {
-    for (let j = i; j < s.length; j++) {
-      if (isPalindromic(s, i, j)) {
-        count++;
-      }
-    }
+    subString(s, i, i);
+    subString(s, i, i + 1);
   }
-  return count;
+  return res;
 };
