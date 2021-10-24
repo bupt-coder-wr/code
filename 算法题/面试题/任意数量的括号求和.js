@@ -11,7 +11,7 @@ function sum(a) {
     return f;
   }
 
-  f.toString = function () {
+  f.valueOf = function () {
     return currentSum;
   };
 
