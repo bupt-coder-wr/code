@@ -1,0 +1,23 @@
+{
+  /*
+  include 用来指定哪些ts文件需要被编译
+  路径： ** 表示任意目录
+        * 表示任意文件
+  */
+  "include": [
+    "./**/*"
+  ],
+  "exclude": [
+    "./hello/**/*"
+  ],
+  "compilerOptions": {
+    // target 用来指定ts被编译的js版本
+    "target": "ES6",
+    "module": "es2015",
+    "lib": [
+      "DOM"
+    ],
+    // 将全局作用域的变量输出到一个文件里
+    "outDir": "./dist/app.js"
+  }
+}
