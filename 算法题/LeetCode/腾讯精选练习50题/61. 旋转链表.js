@@ -23,13 +23,11 @@ var rotateRight = function (head, k) {
 };
 // 先把链表连成环，然后计算断开的位置
 var rotateRight = function (head, k) {
-  if (k === 0) return head;
-  if (head === null || head.next === null) return head;
-  let len = 0;
-  let cur = head,
-    res = null;
+  if (!head || !head.next) return head;
+  let length = 0;
+  let cur = head;
   while (cur) {
-    len++;
+    length++;
     if (cur.next === null) {
       cur.next = head;
       break;
@@ -37,14 +35,13 @@ var rotateRight = function (head, k) {
       cur = cur.next;
     }
   }
-  let move = len - (k % len);
+  cur = head;
+  let move = length - (k % length) - 1;
   while (move) {
-    if (move == 1) {
-      res = head.next;
-      head.next = null;
-    }
-    head = head.next;
+    cur = cur.next;
     move--;
   }
+  const res = cur.next;
+  cur.next = null;
   return res;
 };
