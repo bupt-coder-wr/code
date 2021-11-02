@@ -22,6 +22,7 @@ var obj2 = {
     console.log(this.a); // 2
   },
   foo2: function () {
+    console.log(this); // obj2
     function inner() {
       console.log(this); // windows， this指向windows
       console.log(this.a); // 3
