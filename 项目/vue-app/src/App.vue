@@ -1,14 +1,12 @@
 <template>
   <div id="app">
     <!-- <VirtualList :listData="data" :itemSize="100" /> -->
-    <!-- <Video /> -->
     <Scroller/>
   </div>
 </template>
 
 <script>
 import VirtualList from "./components/VirtualList.vue";
-import Video from "./components/Video.vue";
 import Scroller from './components/isInViewPort/Scroller_3.vue';
 let d = [];
 for (let i = 0; i < 1000; i++) {
