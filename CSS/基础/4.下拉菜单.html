@@ -1,67 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        .dropBtn {
-            background-color: black;
-            color: white;
-            font-size: 25px;
-            padding: 16px 18px;
-            border: 0;
-            cursor: pointer;
-        }
+      .dropBtn {
+        background-color: black;
+        color: white;
+        font-size: 25px;
+        padding: 16px 18px;
+        border: 0;
+        cursor: pointer;
+      }
 
-        .dropDown {
-            position: relative;
-            display: inline-block;
-        }
+      .dropDown {
+        position: relative;
+        display: inline-block;
+      }
 
-        .dropContent {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            color: white;
-            min-width: 136px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2)
-        }
+      .dropContent {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        color: white;
+        min-width: 136px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      }
 
-        .dropContent a {
-            display: block;
-            color: white;
-            padding: 12px 14px;
-            border: 0;
-            font-size: 20px;
-        }
+      .dropContent a {
+        display: block;
+        color: white;
+        padding: 12px 14px;
+        border: 0;
+        font-size: 20px;
+      }
 
-        .dropDown:hover .dropContent {
-            display: block;
-        }
+      .dropDown:hover .dropContent {
+        display: block;
+      }
 
-        .dropContent a:hover {
-            background-color: lightslategray;
-        }
+      .dropContent a:hover {
+        background-color: lightslategray;
+      }
 
-        .dropBtn:hover {
-            background-color: cadetblue;
-        }
+      .dropBtn:hover {
+        background-color: cadetblue;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="dropDown">
-        <button class="dropBtn">下拉菜单</button>
-        <div class="dropContent">
-            <a href="#">HTML</a>
-            <a href="#">CSS</a>
-            <a href="#">JavaScript</a>
-        </div>
-
+      <button class="dropBtn">下拉菜单</button>
+      <div class="dropContent">
+        <a href="#">HTML</a>
+        <a href="#">CSS</a>
+        <a href="#">JavaScript</a>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

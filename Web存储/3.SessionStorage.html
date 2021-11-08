@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="box">
-        <h2>这是从SessionStorage中提取出的数据</h2>
-        <p id="personName"></p>
-        <p id="personAge"></p>
+      <h2>这是从SessionStorage中提取出的数据</h2>
+      <p id="personName"></p>
+      <p id="personAge"></p>
     </div>
     <script>
-        window.sessionStorage.setItem('name', '王润');
-        window.sessionStorage.setItem('age', 19);
-        var content = document.getElementById('personName');
-        content.innerHTML = window.sessionStorage.getItem('name');
-        content = document.getElementById('personAge');
-        content.innerHTML = window.sessionStorage.getItem('age');
+      window.sessionStorage.setItem("name", "王润");
+      window.sessionStorage.setItem("age", 19);
+      var content = document.getElementById("personName");
+      content.innerHTML = window.sessionStorage.getItem("name");
+      content = document.getElementById("personAge");
+      content.innerHTML = window.sessionStorage.getItem("age");
     </script>
-</body>
-
+  </body>
 </html>

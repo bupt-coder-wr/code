@@ -1,46 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-        div {
-            width: 100px;
-            height: 100px;
-            background-color: red;
-            animation: myFirst 5s;
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        animation: myFirst 5s;
+      }
+
+      @keyframes myFirst {
+        0% {
+          background-color: white;
         }
 
-        @keyframes myFirst {
-            0% {
-                background-color: white;
-            }
-
-            25% {
-                background-color: black;
-            }
-
-            50% {
-                background-color: blue;
-
-            }
-
-            75% {
-                background-color: yellow;
-            }
-
-            100% {
-                background-color: red;
-            }
+        25% {
+          background-color: black;
         }
+
+        50% {
+          background-color: blue;
+        }
+
+        75% {
+          background-color: yellow;
+        }
+
+        100% {
+          background-color: red;
+        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div></div>
-</body>
-
+  </body>
 </html>

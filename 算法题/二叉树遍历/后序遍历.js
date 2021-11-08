@@ -1,15 +1,15 @@
 // 迭代法
-var postorderTraversal = function (root, res = []) {
+var postorderTraversal = function (root) {
+  let res = [];
   if (!root) return res;
-  const stack = [root];
-  let cur = null;
-  do {
-    cur = stack.pop();
-    res.push(cur.val);
-    cur.left && stack.push(cur.left);
-    cur.right && stack.push(cur.right);
-  } while (stack.length);
-  return res.reverse();
+  let stack = [root];
+  while (stack.length) {
+    let node = stack.pop();
+    res.unshift(node.val);
+    node.left && stack.push(node.left);
+    node.right && stack.push(node.right);
+  }
+  return res;
 };
 
 // 递归法

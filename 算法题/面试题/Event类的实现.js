@@ -35,11 +35,11 @@ class Event {
       if (handler === undefined) {
         this.obj[type] = [];
       } else {
-        this.obj[type] = this.obj[type].filter(f => f !== handler);
+        this.obj[type] = this.obj[type].filter((f) => f !== handler);
       }
     }
   }
-  
+
   /**
    * trigger 执行函数
    * @param {要执行那个类型的函数} type
@@ -48,7 +48,7 @@ class Event {
    */
   trigger(type, eventData = {}, point = this) {
     if (this.obj[type]) {
-      this.obj[type].forEach(f => {
+      this.obj[type].forEach((f) => {
         f.call(point, eventData);
         if (f.once) {
           this.off(type.f);

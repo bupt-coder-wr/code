@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <body>
+    <div
+      id="box"
+      style="
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+      "
+    ></div>
+    <script>
+      window.onload = function () {
+        var box = document.getElementById("box");
 
-</head>
-
-<body>
-  <div id="box" style="width:100px;height:100px;background-color: red; position:absolute;"></div>
-  <script>
-
-    window.onload = function () {
-      var box = document.getElementById("box");
-
-      box.onmousedown = function (e) {
-        var x = e.clientX - box.offsetLeft;
-        var y = e.clientY - box.offsetTop;
-        document.onmousemove = function (e) {
-          var left = e.clientX - x;
-          var top = e.clientY - y;
-          box.style.left = left + "px";
-          box.style.top = top + "px";
-        };
-        document.onmouseup = function () {
-          document.onmousemove = null;
+        box.onmousedown = function (e) {
+          var x = e.clientX - box.offsetLeft;
+          var y = e.clientY - box.offsetTop;
+          document.onmousemove = function (e) {
+            var left = e.clientX - x;
+            var top = e.clientY - y;
+            box.style.left = left + "px";
+            box.style.top = top + "px";
+          };
+          document.onmouseup = function () {
+            document.onmousemove = null;
+          };
         };
       };
-    };
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>

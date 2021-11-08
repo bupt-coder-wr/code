@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import VirtualList from "./components/VirtualList.vue";
+import VirtualList from "./components/virtualList/VirtualList.vue";
 import Scroller from './components/isInViewPort/Scroller_3.vue';
 let d = [];
 for (let i = 0; i < 1000; i++) {
