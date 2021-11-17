@@ -17,14 +17,11 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: "VirtualList",
   props: {
-    bufferScale: {
-      type: Number,
-      default: 1,
-    },
     //所有列表数据
     listData: {
       type: Array,
@@ -37,15 +34,6 @@ export default {
     },
   },
   computed: {
-    aboveCount() {
-      return Math.min(this.start, this.bufferScale * this.visibleCount);
-    },
-    belowCount() {
-      return Math.min(
-        this.listData.length - this.end,
-        this.bufferScale * this.visibleCount
-      );
-    },
     //列表总高度
     listHeight() {
       return this.listData.length * this.itemSize;
@@ -60,14 +48,14 @@ export default {
     },
     //获取真实显示列表数据
     visibleData() {
-      let start = this.start - this.aboveCount;
-      let end = this.end + this.belowCount;
-      return this.listData.slice(start, end);
+      return this.listData.slice(
+        this.start,
+        Math.min(this.end, this.listData.length)
+      );
     },
   },
   mounted() {
     this.screenHeight = this.$el.clientHeight;
-    console.log("this.screenHeight", this.screenHeight);
     this.start = 0;
     this.end = this.start + this.visibleCount;
   },
@@ -93,10 +81,12 @@ export default {
       this.end = this.start + this.visibleCount;
       //此时的偏移量
       this.startOffset = scrollTop - (scrollTop % this.itemSize);
+      console.log("this.startOffset", this.startOffset);
     },
   },
 };
 </script>
+
 <style scoped>
 .infinite-list-container {
   height: 100%;

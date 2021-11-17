@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <!-- <VirtualList :listData="data" :itemSize="100" /> -->
-    <Scroller/>
+    <!-- <Scroller/> -->
+    <HalfPx />
   </div>
 </template>
 
 <script>
 import VirtualList from "./components/virtualList/VirtualList.vue";
-import Scroller from './components/isInViewPort/Scroller_3.vue';
+import Scroller from "./components/isInViewPort/Scroller_3.vue";
+import HalfPx from "./components/half-px/HalfPx.vue";
 let d = [];
 for (let i = 0; i < 1000; i++) {
   d.push({ id: i, value: Math.floor(Math.random() * 1000) });
@@ -22,6 +24,7 @@ export default {
   components: {
     VirtualList,
     Scroller,
+    HalfPx
   },
 };
 </script>

@@ -8,6 +8,7 @@ function swap(tree, i, j) {
  * @param {完全二叉树} tree
  * @param {节点数} n
  * @param {做堆操作的当前节点} i
+ * 递归法
  */
 function heapify(tree, n, i) {
   // 递归出口,在最大值节点大于节点数时，递归结束
@@ -30,7 +31,26 @@ function heapify(tree, n, i) {
     heapify(tree, n, max);
   }
 }
-
+/**
+ * 迭代法
+ */
+function heapify(tree, n, i) {
+  const tmp = tree[i];
+  for (let k = 2 * i + 1; k < n; k = 2 * k + 1) {
+    // 从i节点的左子节点开始
+    if (k + 1 < n && tree[k] < tree[k + 1]) {
+      // 如果左子节点小于右子节点，寻找最大子节点
+      k++;
+    }
+    if (tree[k] > tmp) {
+      swap(tree, i, k);
+      // 此时k为父节点，继续向下堆化
+      i = k;
+    } else {
+      break;
+    }
+  }
+}
 /**
  *
  * @param {完全二叉树} tree

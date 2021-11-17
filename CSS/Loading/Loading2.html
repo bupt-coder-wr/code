@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .flip-walker {
+        width: 64px;
+        height: 64px;
+      }
+      .flip-walker::before {
+        content: "";
+        display: block;
+        width: 50%;
+        height: 50%;
+        background: rgba(150, 150, 150, 0.5);
+        animation: flip 2s 0s infinite ease normal;
+      }
+      @keyframes flip {
+        0% {
+          transform: translate(0, 0) rotateX(0) rotateY(0);
+        }
+        25% {
+          transform: translate(100%, 0) rotateX(0) rotateY(180deg);
+        }
+        50% {
+          transform: translate(100%, 100%) rotateX(-180deg) rotateY(180deg);
+        }
+        75% {
+          transform: translate(0, 100%) rotateX(-180deg) rotateY(360deg);
+        }
+        100% {
+          transform: translate(0, 0) rotateX(0) rotateY(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flip-walker"></div>
+  </body>
+</html>

@@ -24,13 +24,12 @@
 // console.log(a1 === b1);
 
 // 单例
-const createSingle = (function () {
+function Person(name, age) {}
+const createSingle = (function (name, age) {
   let unique = null;
   return function () {
     if (!unique) {
-      unique = {
-        a: 1,
-      };
+      unique = new Person();
     }
     return unique;
   };

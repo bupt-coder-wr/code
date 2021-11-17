@@ -5,23 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head>
-  <body>
-    <div
-      id="box"
-      style="
+    <style>
+      .grandpa {
+        width: 1000px;
+        height: 500px;
+        position: absolute;
+        left: 300px;
+        top: 300px;
+        border: 1px solid green;
+      }
+      .parent {
+        left: 200px;
+        top: 200px;
+        width: 800px;
+        height: 300px;
+        /* position: static; */
+        border: 1px solid green;
+      }
+      .child {
+        /* top: 0; */
+        /* left: 0; */
         width: 100px;
         height: 100px;
-        background-color: red;
-        position: relative;
-        top: 3000px;
-      "
-    ></div>
-    <script>
-      let io = new IntersectionObserver((entire) => {
-        console.log(entire);
-      });
-      io.observe(document.getElementById("box"));
-    </script>
+        position: absolute;
+        border: 1px solid gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grandpa">
+      <div class="parent">
+        <div class="child"></div>
+      </div>
+    </div>
+    <script></script>
   </body>
 </html>

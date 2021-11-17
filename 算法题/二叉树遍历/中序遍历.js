@@ -1,10 +1,10 @@
 // 迭代法
 var inorderTraversal = function (root) {
-  const res = [];
-  const stack = [];
+  let stack = [],
+    res = [];
   let cur = root;
-  while (root || stack.length) {
-    if (root) {
+  while (cur || stack.length) {
+    if (cur) {
       stack.push(cur);
       cur = cur.left;
     } else {

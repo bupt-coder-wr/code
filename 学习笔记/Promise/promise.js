@@ -1,3 +1,4 @@
+// https://juejin.cn/post/6844903625769091079
 const PENDING = "pending";
 const FULFILLED = "fulfilled";
 const REJECTED = "rejected";

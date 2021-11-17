@@ -9,3 +9,12 @@ function myCall(context) {
   delete context.fn;
   return result;
 }
+
+const obj = {
+  fn: function fn() {
+    console.log(this);
+  },
+};
+
+obj.fn.call(null); // window
+obj.fn.call(undefined); // window
