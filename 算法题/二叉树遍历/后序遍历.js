@@ -18,4 +18,5 @@ var postorderTraversal = function (root, res = []) {
   postorderTraversal(root.left, res);
   postorderTraversal(root.left, res);
   res.push(root.val);
+  return res;
 };

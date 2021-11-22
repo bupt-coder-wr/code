@@ -19,4 +19,5 @@ var preorderTraversal = function (root, res = []) {
   res.push(root.val);
   preorderTraversal(root.left, res);
   preorderTraversal(root.right, res);
+  return res;
 };
