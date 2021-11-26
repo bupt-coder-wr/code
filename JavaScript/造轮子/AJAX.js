@@ -1,8 +1,8 @@
 // https://www.jianshu.com/p/e1c0818ae3bb
 function ajax(methods, URL) {
-  const xhr = XMLHttpRequest();
+  const xhr = XMLHttpRequest()
   // open(methds, url, async)
-  xhr.open(methods, URL, true);
+  xhr.open(methods, URL, true)
 
   // send(string) 发送请求，post请求的请求参数需要放在send中
   /**
@@ -14,7 +14,7 @@ function ajax(methods, URL) {
    * xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
    * xhr.send("fname=Herry&lname=Ford")
    */
-  xhr.send();
+  xhr.send()
 
   /**
    * status: 200:"OK"
@@ -30,9 +30,9 @@ function ajax(methods, URL) {
    */
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && [200.304].includes(xhr.status)) {
-      console.log(xhr.responseText);
+      console.log(xhr.responseText)
     } else {
-      console.log(Error(xhr.status));
+      console.log(Error(xhr.status))
     }
-  };
+  }
 }

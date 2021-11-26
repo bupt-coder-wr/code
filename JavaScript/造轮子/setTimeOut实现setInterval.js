@@ -1,16 +1,13 @@
-var count = 5
-function mysetInterval(fn, millisec) {
-	function interval() {
-		if (count > 0) {
-			setTimeout(interval, millisec)
-		}
+function mySetInterval(fn, wait = 300) {
+  function interval() {
+    setTimeout(interval, wait)
+    fn()
+  }
+  setTimeout(interval, wait)
+}
 
-		fn()
-	}
-	setTimeout(interval, millisec)
+// 实例：
+function log() {
+  console.log(new Date())
 }
-function sayhi() {
-	--count
-	console.log("hi")
-}
-mysetInterval(sayhi, 1000)
+mySetInterval(log, 1000)

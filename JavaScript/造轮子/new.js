@@ -6,19 +6,19 @@
  * 4. 如果构造函数返回非空对象，则返回该对象；否则，返回刚创建的对象
  */
 function create(Con, ...args) {
-	let obj = {}
-	obj.__proto__ = Con.prototype
-	let result = Con.apply(obj, args)
-	return typeof result === "object" ? result : obj
+  let obj = {}
+  obj.__proto__ = Con.prototype
+  let result = Con.apply(obj, args)
+  return typeof result === "object" ? result : obj
 }
 
 // 例子
 function Person(name, age) {
-	this.name = name
-	this.age = age
-	Person.prototype.getName = function () {
-		console.log(this.name)
-	}
+  this.name = name
+  this.age = age
+  Person.prototype.getName = function () {
+    console.log(this.name)
+  }
 }
 const p1 = create(Person, "Tars", 20)
 console.log(p1)
