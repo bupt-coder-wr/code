@@ -1,13 +1,18 @@
 function mySetInterval(fn, wait = 300) {
-  function interval() {
-    setTimeout(interval, wait)
+  let timeId = null
+  const interval = () => {
+    timeId = setTimeout(interval, wait)
     fn()
   }
-  setTimeout(interval, wait)
+  timeId = setTimeout(interval, wait)
+  return () => clearTimeout(timeId)
 }
 
 // 实例：
 function log() {
   console.log(new Date())
 }
-mySetInterval(log, 1000)
+const cancel = mySetInterval(log, 1000)
+setTimeout(() => {
+  cancel()
+}, 3000)
