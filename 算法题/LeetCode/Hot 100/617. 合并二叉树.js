@@ -1,8 +1,8 @@
-var mergeTrees = function (t1, t2) {
-    if (t1 && t2) {
-        t1.val += t2.val;
-        t1.left = mergeTrees(t1.left, t2.left);
-        t1.right = mergeTrees(t1.right, t2.right);
-    }
-    return t1 || t2;
-};
+var mergeTrees = function (root1, root2) {
+  if (root1 && root2) {
+    root1.val += root2.val
+    root1.left = mergeTrees(root1.left, root2.left)
+    root1.right = mergeTrees(root1.right, root2.right)
+  }
+  return root1 || root2
+}

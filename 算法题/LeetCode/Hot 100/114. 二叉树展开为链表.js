@@ -4,20 +4,18 @@
  * @returns
  */
 var flatten = function (root) {
-  if (!root) return root;
-  let list = [];
-  const preConsole = (root) => {
-    if (root) {
-      list.push(root);
-      preConsole(root.left);
-      preConsole(root.right);
+  let cur = root
+  while (cur) {
+    if (cur.left) {
+      const next = cur.left
+      let pre = cur.left
+      while (pre.right) {
+        pre = pre.right
+      }
+      pre.right = cur.right
+      cur.left = null
+      cur.right = next
     }
-  };
-  preConsole(root);
-  for (let i = 1; i < list.length; i++) {
-    const prev = list[i - 1],
-      curr = list[i];
-    prev.left = null;
-    prev.right = curr;
+    cur = cur.right
   }
-};
+}
