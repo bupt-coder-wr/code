@@ -1,29 +1,19 @@
-function SuperType(name) {
-  this.name = name;
-  this.color = ["block", "yellow", "red"];
+function Person(name, age) {
+  (this.name = name), (this.age = age), (this.setAge = function () {});
 }
-SuperType.prototype.sayName = function() {
-  console.log("sayName:", this.name);
+Person.prototype.setAge = function () {
+  console.log("111");
 };
-
-function SubType(name, age) {
-  SuperType.call(this, name);
-  this.age = age;
+function Student(name, age, price) {
+  Person.call(this, name, age);
+  this.price = price;
+  this.setScore = function () {};
 }
-
-SubType.prototype = new SuperType();
-SubType.prototype.constructor = SubType;
-SubType.prototype.sayAge = function() {
-  console.log("sayAge", this.age);
-};
-
-const instance = new SubType("wr", 20);
-instance.color.push("blue");
-console.log(instance.color);
-instance.sayName();
-instance.sayAge();
-
-const example = new SubType("wz", 25);
-console.log(example.color);
-example.sayName();
-example.sayAge();
+Student.prototype = new Person();
+Student.prototype.constructor = Student; //组合继承也是需要修复构造函数指向的
+Student.prototype.sayHello = function () {};
+var s1 = new Student("Tom", 20, 15000);
+var s2 = new Student("Jack", 22, 14000);
+console.log(s1);
+console.log(s1.constructor); //Student
+console.log(p1.constructor); //Person

@@ -1,22 +1,22 @@
 /**
  * 原型链继承
  */
-function SuperType() {
-  this.super = true;
-  this.getSuper = function() {
-    return this.super;
-  };
+//父类型
+function Person(name, age) {
+  (this.name = name), (this.age = age), (this.play = [1, 2, 3]);
+  this.setName = function () {};
 }
-function SubType() {
-  this.sub = false;
-  this.getSub = function() {
-    return this.sub;
-  };
+Person.prototype.setAge = function () {};
+//子类型
+function Student(price) {
+  this.price = price;
+  this.setScore = function () {};
 }
-SubType.prototype = new SuperType();
-
-const instance = new SubType();
-console.log("sub:", instance.sub);
-console.log("getsub:", instance.getSub);
-console.log("super:", instance.super);
-console.log("getSuper:", instance.getSuper);
+Student.prototype = new Person(); // 子类型的原型为父类型的一个实例对象
+var s1 = new Student(15000);
+var s2 = new Student(14000);
+console.log(s1, s2);
+/**
+  父类新增原型方法/原型属性，子类都能访问到
+  简单，易于实现
+ */
