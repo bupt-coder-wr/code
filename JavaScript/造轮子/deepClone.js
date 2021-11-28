@@ -1,11 +1,8 @@
-function deepClone(obj) {
-  if (typeof obj !== "object") return
-  let result = obj instanceof Array ? [] : {}
-  for (let item in obj) {
-    if (obj.hasOwnProperty(item)) {
-      result[item] = typeof item === "object" ? deepClone(obj[item]) : obj[item]
-    }
+function deepClone(target) {
+  if (typeof target !== "object") return target
+  let result = target instanceof Array ? [] : {}
+  for (const key in target) {
+    result[key] = typeof key === "object" ? deepClone(target[key]) : target[key]
   }
   return result
 }
-deepClone({ a: "b" })
