@@ -4,25 +4,25 @@
 
 ```javascript
 // 1. 创建 XMLHttpRequest()对象
-const xhr = new XMLHttpRequest();
+const xhr = new XMLHttpRequest()
 
 // 2. 请求数据
-xhr.open("get", "getStar.php", true);
+xhr.open('get', 'getStar.php', true)
 
 // 3. 创建回调函数
 xhr.onreadystatechange = function () {
   if (xhr.readyState === 4 && [200, 304].includes(xhr.status)) {
-    console.log(ajax.responseText);
+    console.log(ajax.responseText)
   } else {
-    console.log("AJAX交互失败");
+    console.log('AJAX交互失败')
   }
-};
+}
 
 // 4. 设置请求的 HTTP 头部信息(这是请求头)
-xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
 
 // 5. 发送请求
-xhr.send();
+xhr.send()
 ```
 
 ## XMLHttpRequest 常见属性和方法
@@ -54,29 +54,29 @@ xhr.send();
 ```javascript
 const Ajax = {
   get: function (url, fn) {
-    let xhr = new XMLHttpRequest();
-    xhr.open("get", url, true);
+    let xhr = new XMLHttpRequest()
+    xhr.open('get', url, true)
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && [200, 304].includes(xhr.status)) {
-        fn.call(this, responseText);
+        fn.call(this, responseText)
       } else {
-        console.error("some error");
+        console.error('some error')
       }
-    };
-    xhr.send();
+    }
+    xhr.send()
   },
   post: function (url, data, fn) {
-    let xhr = new XMLHttpRequest();
-    xhr.open("post", url, true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    let xhr = new XMLHttpRequest()
+    xhr.open('post', url, true)
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && [200, 304].includes(xhr.status)) {
-        fn.call(this, responseText);
+        fn.call(this, responseText)
       } else {
-        console.error("some error");
+        console.error('some error')
       }
-    };
-    xhr.send(data);
+    }
+    xhr.send(data)
   },
-};
+}
 ```
