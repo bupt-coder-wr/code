@@ -14,27 +14,34 @@
 </template>
 <script>
 export default {
-  name: "scroller",
+  name: 'scroller',
   mounted() {
-    this.isInViewPortOfOne();
+    this.isInViewPortOfOne()
   },
   methods: {
     isInViewPortOfOne() {
-      const el = document.getElementsByClassName("target-box")[0];
-      const parent = document.getElementsByClassName("app")[0];
+      const el = document.getElementsByClassName('target-box')[0]
+      const parent = document.getElementsByClassName('app')[0]
       const viewPortHeight =
         window.innerHeight ||
         document.documentElement.clientHeight ||
-        document.body.clientHeight;
-      const offsetTop = el.offsetTop;
-      const scrollTop = parent.scrollTop;
-      const top = offsetTop - scrollTop;
-      console.log("offsetTop", offsetTop, "scrollTop", scrollTop);
-      console.log(top <= viewPortHeight);
-      return top <= viewPortHeight;
+        document.body.clientHeight
+      const offsetTop = el.offsetTop
+      const scrollTop = parent.scrollTop
+      const top = offsetTop - scrollTop
+      console.log(
+        'offsetTop',
+        offsetTop,
+        'scrollTop',
+        scrollTop,
+        'viewPortHeight',
+        viewPortHeight
+      )
+      console.log(top <= viewPortHeight)
+      return top <= viewPortHeight
     },
   },
-};
+}
 </script>
 <style scoped>
 .app {

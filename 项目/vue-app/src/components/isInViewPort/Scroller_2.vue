@@ -14,23 +14,21 @@
 </template>
 <script>
 export default {
-  name: "scroller",
+  name: 'scroller',
   methods: {
     isInViewPort() {
-      const el = document.getElementsByClassName("target-box")[0];
-      const parent = document.getElementsByClassName("app")[0];
-      const viewWidth = window.innerWidth || parent.clientWidth;
-      const viewHeight = window.innerHeight || parent.clientHeight;
-      const { top, right, bottom, left } = el.getBoundingClientRect();
+      const el = document.getElementsByClassName('target-box')[0]
+      const parent = document.getElementsByClassName('app')[0]
+      const viewWidth = window.innerWidth || parent.clientWidth
+      const viewHeight = window.innerHeight || parent.clientHeight
+      const { top, right, bottom, left } = el.getBoundingClientRect()
       console.log(
         top >= 0 && left >= 0 && right <= viewWidth && bottom <= viewHeight
-      );
-      return (
-        top >= 0 && left >= 0 && right <= viewWidth && bottom <= viewHeight
-      );
+      )
+      return top >= 0 && left >= 0 && right <= viewWidth && bottom <= viewHeight
     },
   },
-};
+}
 </script>
 <style scoped>
 .app {

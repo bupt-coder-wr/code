@@ -13,7 +13,7 @@ export default {
   // 实现移动端 0.5px
   // ios表现， half-px-1,half-px-2 相同
   // Android 小米， 粗细程度： px > half-px-2 > half-px-1
-};
+}
 </script>
 <style scoped>
 .px {
@@ -47,7 +47,7 @@ export default {
   margin: auto;
 }
 .type3::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 200%;
   height: 200%;

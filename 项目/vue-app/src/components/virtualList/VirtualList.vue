@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "VirtualList",
+  name: 'VirtualList',
   props: {
     //所有列表数据
     listData: {
@@ -36,28 +36,28 @@ export default {
   computed: {
     //列表总高度
     listHeight() {
-      return this.listData.length * this.itemSize;
+      return this.listData.length * this.itemSize
     },
     //可显示的列表项数
     visibleCount() {
-      return Math.ceil(this.screenHeight / this.itemSize);
+      return Math.ceil(this.screenHeight / this.itemSize)
     },
     //偏移量对应的style
     getTransform() {
-      return `translate3d(0,${this.startOffset}px,0)`;
+      return `translate3d(0,${this.startOffset}px,0)`
     },
     //获取真实显示列表数据
     visibleData() {
       return this.listData.slice(
         this.start,
         Math.min(this.end, this.listData.length)
-      );
+      )
     },
   },
   mounted() {
-    this.screenHeight = this.$el.clientHeight;
-    this.start = 0;
-    this.end = this.start + this.visibleCount;
+    this.screenHeight = this.$el.clientHeight
+    this.start = 0
+    this.end = this.start + this.visibleCount
   },
   data() {
     return {
@@ -69,22 +69,22 @@ export default {
       start: 0,
       //结束索引
       end: null,
-    };
+    }
   },
   methods: {
     scrollEvent() {
       //当前滚动位置
-      let scrollTop = this.$refs.list.scrollTop;
+      let scrollTop = this.$refs.list.scrollTop
       //此时的开始索引
-      this.start = Math.floor(scrollTop / this.itemSize);
+      this.start = Math.floor(scrollTop / this.itemSize)
       //此时的结束索引
-      this.end = this.start + this.visibleCount;
+      this.end = this.start + this.visibleCount
       //此时的偏移量
-      this.startOffset = scrollTop - (scrollTop % this.itemSize);
-      console.log("this.startOffset", this.startOffset);
+      this.startOffset = scrollTop - (scrollTop % this.itemSize)
+      console.log('this.startOffset', this.startOffset)
     },
   },
-};
+}
 </script>
 
 <style scoped>
