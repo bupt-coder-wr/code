@@ -4,9 +4,9 @@ preTraversal = function () {
 }
 _pre = function (node) {
   if (node) {
-    console.log(node.value);
-    _pre(node.left);
-    _pre(node.right);
+    console.log(node.value)
+    _pre(node.left)
+    _pre(node.right)
   }
 }
 
@@ -16,20 +16,20 @@ midTraversal = function () {
 }
 _mid = function (node) {
   if (node) {
-    _mid(node.left);
-    console.log(node.value);
+    _mid(node.left)
+    console.log(node.value)
     _mid(node.right)
   }
 }
 
 // 后序遍历
 backTraversal = function () {
-  this._back(this.node);
+  this._back(this.node)
 }
 _back = function (node) {
   if (node) {
-    _back(node.left);
-    _back(node.right);
-    console.log(node.value);
+    _back(node.left)
+    _back(node.right)
+    console.log(node.value)
   }
 }

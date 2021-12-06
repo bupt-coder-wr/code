@@ -26,14 +26,14 @@
 // 单例
 function Person(name, age) {}
 const createSingle = (function (name, age) {
-  let unique = null;
+  let unique = null
   return function () {
     if (!unique) {
-      unique = new Person();
+      unique = new Person()
     }
-    return unique;
-  };
-})();
-const a1 = createSingle();
-const b1 = createSingle();
-console.log(a1 === b1);
+    return unique
+  }
+})()
+const a1 = createSingle()
+const b1 = createSingle()
+console.log(a1 === b1)

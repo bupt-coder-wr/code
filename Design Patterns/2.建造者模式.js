@@ -1,24 +1,24 @@
 const data = [
   {
-    name: "zhang san",
+    name: 'zhang san',
     age: 23,
-    work: "engineer",
+    work: 'engineer',
   },
   {
-    name: "li si",
+    name: 'li si',
     age: 20,
-    work: "teacher",
+    work: 'teacher',
   },
   {
-    name: "zhang san",
+    name: 'zhang san',
     age: 23,
-    work: "engineer",
+    work: 'engineer',
   },
-];
+]
 function Candidate(params) {
-  let _candidate = {};
-  _candidate.name = params.name;
-  _candidate.age = params.age;
-  _candidate.firstName = params.name.split(" ")[0];
-  _candidate.lastName = params.name.split(" ")[1];
+  let _candidate = {}
+  _candidate.name = params.name
+  _candidate.age = params.age
+  _candidate.firstName = params.name.split(' ')[0]
+  _candidate.lastName = params.name.split(' ')[1]
 }
