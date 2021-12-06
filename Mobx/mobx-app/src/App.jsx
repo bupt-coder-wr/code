@@ -1,17 +1,14 @@
-import { Component } from "react";
-import { observer } from "mobx-react";
-
+import { Component } from 'react'
+import { observer } from 'mobx-react'
 
 @observer
 class App extends Component {
   increment = () => {
-    const { store } = this.props;
-    store.increment();
-  };
+    const { store } = this.props
+    store.increment()
+  }
   render() {
-    const { store } = this.props;
-
-
+    const { store } = this.props
 
     return (
       <div>
@@ -24,7 +21,7 @@ class App extends Component {
         <div>Total：{store.totalPrice}</div>
         <div>Total：{store.totalPrice}</div>
       </div>
-    );
+    )
   }
 }
-export default App;
+export default App
