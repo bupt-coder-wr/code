@@ -10,19 +10,42 @@
   <body>
     <div
       id="progressBar"
-      style="width: 300px; height: 20px; background-color: lightblue"
+      style="
+        position: relative;
+        width: 500px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        background-color: lightblue;
+      "
     >
-      <p id="run" style="background-color: blue; width: 0%">0%</p>
+      <div
+        id="run"
+        style="
+          z-index: 1;
+          position: absolute;
+          height: 20px;
+          line-height: 20px;
+          text-align: center;
+          top: 0;
+          left: 0;
+          width: 0;
+          background-color: skyblue;
+        "
+      ></div>
     </div>
     <script>
-      let run = document.getElementById("run").style.width;
-      alert(run);
-      let myid = setInterval(function () {
-        run += "5 %";
-        if (run == "100 %") {
-          clearInterval(run);
+      let nodeParent = document.getElementById('progressBar')
+      let nodeRun = document.getElementById('run')
+      let width = parseInt(nodeRun.style.width.split('px')[0])
+      const callback = () => {
+        width += 1
+        nodeRun.style.width = width + '%'
+        if (width < 100) {
+          requestAnimationFrame(callback)
         }
-      }, 100);
+      }
+      requestAnimationFrame(callback)
     </script>
   </body>
 </html>
