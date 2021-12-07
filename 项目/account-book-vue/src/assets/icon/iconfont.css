@@ -1,0 +1,167 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2064503 */
+  /* Color fonts */
+  src: 
+       url('iconfont.ttf?t=1638881322578') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wodexuanzhong:before {
+  content: "\e601";
+}
+
+.icon-31shouye:before {
+  content: "\e602";
+}
+
+.icon-31wode:before {
+  content: "\e603";
+}
+
+.icon-zichan1:before {
+  content: "\e668";
+}
+
+.icon-faxian1:before {
+  content: "\e619";
+}
+
+.icon-jiantou:before {
+  content: "\e633";
+}
+
+.icon-ai207:before {
+  content: "\e6c3";
+}
+
+.icon-sousuo:before {
+  content: "\e62f";
+}
+
+.icon-zhanghu:before {
+  content: "\e632";
+}
+
+.icon-shuju01:before {
+  content: "\e63a";
+}
+
+.icon-daochu:before {
+  content: "\e63f";
+}
+
+.icon-rili1:before {
+  content: "\e640";
+}
+
+.icon-aixin:before {
+  content: "\e62a";
+}
+
+.icon-qiandao1:before {
+  content: "\e641";
+}
+
+.icon-xianjinhongbao:before {
+  content: "\e617";
+}
+
+.icon-zhaoshangyinhang:before {
+  content: "\e622";
+}
+
+.icon-weixin:before {
+  content: "\e620";
+}
+
+.icon-shujuwajue:before {
+  content: "\ec5c";
+}
+
+.icon-zhifupingtai-zhifubao:before {
+  content: "\e613";
+}
+
+.icon-jingdongicon-:before {
+  content: "\e642";
+}
+
+.icon-yijiechu:before {
+  content: "\e64c";
+}
+
+.icon-qianfeijiaofei:before {
+  content: "\e605";
+}
+
+.icon-shouye:before {
+  content: "\e604";
+}
+
+.icon-shangchuan:before {
+  content: "\e60b";
+}
+
+.icon-shuaxin:before {
+  content: "\e60c";
+}
+
+.icon-quxiao:before {
+  content: "\e615";
+}
+
+.icon-fanhui:before {
+  content: "\e616";
+}
+
+.icon-shanchu:before {
+  content: "\e618";
+}
+
+.icon-search1:before {
+  content: "\e63e";
+}
+
+.icon-tushu:before {
+  content: "\e65c";
+}
+
+.icon-rili:before {
+  content: "\e75b";
+}
+
+.icon-qiandao:before {
+  content: "\e600";
+}
+
+.icon-yuntongbu:before {
+  content: "\e6d1";
+}
+
+.icon-back:before {
+  content: "\e61c";
+}
+
+.icon-zichan:before {
+  content: "\e61b";
+}
+
+.icon-wode:before {
+  content: "\e625";
+}
+
+.icon-faxian:before {
+  content: "\e621";
+}
+
+.icon-xinbaniconshangchuan-:before {
+  content: "\e631";
+}
+
