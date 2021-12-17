@@ -21,11 +21,11 @@
     </ul>
   </body>
   <script>
-    const p = document.getElementById("parent");
-    p.addEventListener("click", function (e) {
+    const p = document.getElementById('parent')
+    p.addEventListener('click', function (e) {
       // 在事件冒泡过程中，target指向子元素，currentTarget指向父元素
-      console.log("e.target", e.target);
-      console.log("e.currentTarget", e.currentTarget);
-    });
+      console.log('e.target', e.target)
+      console.log('e.currentTarget', e.currentTarget)
+    })
   </script>
 </html>

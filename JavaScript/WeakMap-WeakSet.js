@@ -14,14 +14,14 @@
 // console.log("b", b);
 // console.log(weakMap.has(b));
 
-const set = new Set();
-a = {};
-set.add(a);
-a = null;
-console.log(set.has(a));
+const set = new Set()
+a = {}
+set.add(a)
+a = null
+console.log(set.has(a))
 
-const weakSet = new WeakSet();
-a = {};
-weakSet.add(a);
-a = null;
-console.log(weakSet.has(a));
+const weakSet = new WeakSet()
+a = {}
+weakSet.add(a)
+a = null
+console.log(weakSet.has(a))
