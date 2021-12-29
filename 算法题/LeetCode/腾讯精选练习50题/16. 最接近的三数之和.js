@@ -6,26 +6,25 @@
  * 经典双指针问题，时间复杂度为O(n2)，与三数之和类似，多了一个比较差值的环节
  */
 var threeSumClosest = function (nums, target) {
-  let sub = Infinity;
-  let res = 0;
-  nums.sort((a, b) => a - b);
+  nums.sort((a, b) => a - b)
+  let min = Number.MAX_SAFE_INTEGER
+  let res = 0
   for (let i = 0; i < nums.length - 2; i++) {
-    let start = i + 1,
-      end = nums.length - 1;
-    while (start < end) {
-      let sum = nums[start] + nums[end] + nums[i];
-      if (Math.abs(sum - target) < sub) {
-        sub = Math.abs(sum - target);
-        res = sum;
+    if (i !== 0 && nums[i] === nums[i - 1]) continue
+    let j = i + 1,
+      k = nums.length - 1
+    while (j < k) {
+      let sum = nums[i] + nums[j] + nums[k]
+      if (Math.abs(sum - target) < min) {
+        min = Math.abs(sum - target)
+        res = sum
       }
-      if (sum === target) {
-        return target;
-      } else if (sum < target) {
-        start++;
+      if (sum < target) {
+        j++
       } else {
-        end--;
+        k--
       }
     }
   }
-  return res;
-};
+  return res
+}

@@ -11,11 +11,11 @@
  */
 var isSymmetric = function (root) {
   function isMirror(p, q) {
-    if (!p && !q) return true;
-    if (!p || !q) return false;
+    if (!p && !q) return true
+    if (!p || !q) return false
     return (
       p.val === q.val && isMirror(p.left, q.right) && isMirror(q.left, p.right)
-    );
+    )
   }
-  return isMirror(root, root);
-};
+  return isMirror(root, root)
+}
