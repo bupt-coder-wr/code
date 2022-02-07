@@ -1,6 +1,6 @@
 Function.prototype.apply = function (context) {
-  if (typeof context !== "function") {
-    throw new TypeError("")
+  if (typeof context !== 'function') {
+    throw new TypeError('')
   }
   context = context || window
   context.fn = this
@@ -17,7 +17,7 @@ Function.prototype.apply = function (context) {
 const obj = {
   fn: function fn() {
     console.log(this)
-  }
+  },
 }
 
 obj.fn.apply(null) // window

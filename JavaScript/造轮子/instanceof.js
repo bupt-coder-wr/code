@@ -1,4 +1,5 @@
 function myInstanceof(left, right) {
+  if (typeof left !== 'object') return false
   let proto = Object.getPrototypeOf(left)
   let prototype = right.prototype
   while (true) {

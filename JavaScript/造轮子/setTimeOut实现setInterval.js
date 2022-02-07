@@ -15,4 +15,4 @@ function log() {
 const cancel = mySetInterval(log, 1000)
 setTimeout(() => {
   cancel()
-}, 3000)
+}, 10000)

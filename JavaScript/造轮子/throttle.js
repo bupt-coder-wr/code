@@ -23,7 +23,7 @@ function throttle(cd, wait = 300) {
 }
 
 function fn() {
-  console.log("test")
+  console.log('test')
 }
 const wrapFn = throttle(fn, 2)
 wrapFn()

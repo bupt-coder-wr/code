@@ -9,7 +9,9 @@ function create(Con, ...args) {
   let obj = {}
   obj.__proto__ = Con.prototype
   let result = Con.apply(obj, args)
-  return typeof result === "object" ? result : obj
+  // 若 Con 函数存在返回值，则返回result
+  // 若 Con 函数不存在返回值，则返回 obj
+  return typeof result === 'object' ? result : obj
 }
 
 // 例子
@@ -20,6 +22,6 @@ function Person(name, age) {
     console.log(this.name)
   }
 }
-const p1 = create(Person, "Tars", 20)
+const p1 = create(Person, 'Tars', 20)
 console.log(p1)
 p1.getName()

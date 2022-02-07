@@ -7,7 +7,7 @@ Function.prototype.myBind = function (context) {
   return function F() {
     if (this instanceof F) {
       // 作为构造函数使用，返回一个实例
-      console.log("执行了这里")
+      console.log('执行了这里')
       return new self(...args, ...arguments)
     } else {
       // fn.bind(obj,1)(2)
@@ -22,9 +22,9 @@ function Person(name, age) {
   this.age = age
 }
 const p1 = {
-  name: "wr",
-  age: 20
+  name: 'wr',
+  age: 20,
 }
-const fn = Person.myBind(p1, "wz")
+const fn = Person.myBind(p1, 'wz')
 const p = new fn(22)
 console.log(p)

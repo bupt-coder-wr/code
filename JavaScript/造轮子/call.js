@@ -1,6 +1,6 @@
 function myCall(context) {
-  if (typeof context !== "function") {
-    throw new TypeError("")
+  if (typeof context !== 'function') {
+    throw new TypeError('')
   }
   context = context || window
   context.fn = this
@@ -13,7 +13,7 @@ function myCall(context) {
 const obj = {
   fn: function fn() {
     console.log(this)
-  }
+  },
 }
 
 obj.fn.call(null) // window

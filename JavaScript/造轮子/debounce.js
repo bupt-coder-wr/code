@@ -21,9 +21,9 @@ const debounce = (fn, wait = 300, immediate = false) => {
 
 // 测试用例
 function log() {
-  console.log("logggg")
+  console.log('logggg')
 }
-const a = debounce(log, 1)
+const a = debounce(log, 3)
 a()
 a()
 a()
