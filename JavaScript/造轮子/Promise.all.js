@@ -9,8 +9,8 @@
 function isPromise(obj) {
   return (
     !!obj &&
-    (typeof obj === "object" || typeof obj === "function") &&
-    typeof obj.then === "function"
+    (typeof obj === 'object' || typeof obj === 'function') &&
+    typeof obj.then === 'function'
   )
 }
 Promise.myAll = function (promises) {
@@ -19,7 +19,7 @@ Promise.myAll = function (promises) {
   return new Promise((resolve, reject) => {
     // 校验入参
     if (!Array.isArray(promises)) {
-      return reject(new TypeError("argumentsmust be an array"))
+      return reject(new TypeError('arguments must be an array'))
     }
     let promiseCount = 0
     let promiseLength = promises.length
@@ -48,14 +48,14 @@ Promise.myAll = function (promises) {
 }
 
 // 测试用例：
-let p1 = Promise.resolve("1 success")
+let p1 = Promise.resolve('1 success')
 let p2 = new Promise(resolve => {
   setTimeout(() => {
-    resolve("p2 success")
+    resolve('p2 success')
   }, 2000)
 })
-let p3 = "success"
-Promise.myAll(1).then(
+let p3 = 'success'
+Promise.myAll([p1, p2, p3]).then(
   res => {
     console.log(res)
   },

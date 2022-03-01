@@ -9,42 +9,29 @@
   </head>
 
   <body>
-    <div id="myVue">
-      <p v-once>my name : {{name}}</p>
-      <p v-html="age"></p>
-      <div style="height: 1000px;"></div>
+    <div id="root">
+      <button @click="changeName">Button</button>
+      <p v-for="item in person" :key="item">{{item}}</p>
     </div>
     <script>
       new Vue({
-        el: "#myVue",
+        el: '#root',
         data: {
-          name: "wr",
-          age: "<h1>19</h1>",
-          gender: "male",
-        },
-        mounted() {
-          window.addEventListener("scroll", this.handleScroll, true);
-          // 监听（绑定）滚轮 滚动事件
+          person: {
+            name: 'wr',
+            age: '19',
+            gender: 'male',
+            child: ['c1', 'c2', 'c3'],
+          },
+          arr: [1, 2, 3, 4],
         },
         methods: {
-          handleScroll() {
-            // 页面滚动距顶部距离
-            var scrollTop =
-              window.pageYOffset ||
-              document.documentElement.scrollTop ||
-              document.body.scrollTop;
-            var scroll = scrollTop - this.i;
-            this.i = scrollTop;
-            if (scroll < 0) {
-              console.log("up");
-              //添加你想要的事件
-            } else {
-              //添加你想要的事件
-              console.log("down");
-            }
+          changeName() {
+            this.person.age = '20'
+            this.person.child[0] = '11'
           },
         },
-      });
+      })
     </script>
   </body>
 </html>

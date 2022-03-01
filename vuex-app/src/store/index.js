@@ -23,6 +23,7 @@ export default new Vuex.Store({
       return state.todos.filter(item => item.done === true)
     },
   },
+  // vue methods
   mutations: {
     addCountOne(state) {
       state.count++
@@ -31,6 +32,7 @@ export default new Vuex.Store({
       state.count += 2
     },
   },
+  // 异步methods
   actions: {
     incrementAsync({ commit }) {
       setTimeout(() => {

@@ -5,8 +5,8 @@ import '../src/style/index.less'
 // import Demo from './component/3_hooks/useEffect'
 // import Demo from './component/3_hooks/useContext'
 // import Demo from './component/3_hooks/useReducer'
-// import Demo from './component/3_hooks/useCallback'
-import Demo from './component/3_hooks/useRef'
+import Demo from './component/3_hooks/useCallback'
+// import Demo from './component/3_hooks/useRef'
 class App extends Component {
   render() {
     return (

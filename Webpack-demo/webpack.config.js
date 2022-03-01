@@ -1,6 +1,7 @@
-const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const DemoPlugin = require('./src/plugin/DemoPlugin.js')
 // const BundleAnalyzerPlugin =
 //   require("webpack-bundle-an？alyzer").BundleAnalyzerPlugin;
 // const DashboardPlugin = require("webpack-dashboard/plugin");
@@ -8,7 +9,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   //   entry: "./src/index.js",
   entry: {
-    index: "./src/index.js",
+    index: './src/index.js',
     // print: "./src/print.js",
   },
   module: {
@@ -23,36 +24,37 @@ module.exports = {
       // },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, 'dist'),
     // filename: "bundle.js",
-    filename: "[name].bundle.js",
+    filename: '[name].bundle.js',
     clean: true,
-    publicPath: "/",
+    publicPath: '/',
   },
   // 帮助打包后的文件定位错误
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
   // 保持浏览器事实刷新
   devServer: {
     hot: true,
-    host: "localhost",
-    port: "8000",
-    static: "./dist",
+    host: 'localhost',
+    port: '8000',
+    static: './dist',
   },
-  target: "web",
+  target: 'web',
   plugins: [
+    new DemoPlugin({ name: 'wwr' }),
     new HtmlWebpackPlugin({
-      title: "development",
+      title: 'development',
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
     // 打包文件大小可视化
     // new BundleAnalyzerPlugin(),
     // 展示相关打包信息
     // new DashboardPlugin(),
   ],
-  mode: "development",
-};
+  mode: 'development',
+}
