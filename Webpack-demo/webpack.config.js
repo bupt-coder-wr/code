@@ -1,27 +1,24 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const DemoPlugin = require('./src/plugin/DemoPlugin.js')
-// const BundleAnalyzerPlugin =
-//   require("webpack-bundle-an？alyzer").BundleAnalyzerPlugin;
-// const DashboardPlugin = require("webpack-dashboard/plugin");
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const DashboardPlugin = require('webpack-dashboard/plugin')
 
 module.exports = {
-  //   entry: "./src/index.js",
   entry: {
     index: './src/index.js',
-    // print: "./src/print.js",
   },
   module: {
     rules: [
-      // {
-      //   test: /\.(png|jpg)$/i,
-      //   use: ["file-loader"],
-      // },
-      // {
-      //   test: /\.(png|jpg)$/i,
-      //   use: ["url-loader"],
-      // },
+      {
+        test: /\.(png|jpg)$/i,
+        use: ['file-loader'],
+      },
+      {
+        test: /\.(png|jpg)$/i,
+        use: ['url-loader'],
+      },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
@@ -46,7 +43,6 @@ module.exports = {
   },
   target: 'web',
   plugins: [
-    new DemoPlugin({ name: 'wwr' }),
     new HtmlWebpackPlugin({
       title: 'development',
     }),
@@ -54,7 +50,7 @@ module.exports = {
     // 打包文件大小可视化
     // new BundleAnalyzerPlugin(),
     // 展示相关打包信息
-    // new DashboardPlugin(),
+    new DashboardPlugin(),
   ],
-  mode: 'development',
+  mode: 'development', // ['development', '']
 }

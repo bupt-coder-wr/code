@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <VirtualList :listData="data" :itemSize="100" />
+    <!-- <VirtualList :listData="data" :itemSize="100" /> -->
+    <VirtualList2 :listData="data" :estimatedItemSize="100" />
     <!-- <Scroller /> -->
     <!-- <HalfPx /> -->
     <!-- <Attrs /> -->
@@ -8,23 +9,36 @@
 </template>
 
 <script>
-import VirtualList from './components/virtualList/VirtualList.vue'
+import VirtualList1 from './components/virtualList/VirtualList.vue'
+import VirtualList2 from './components/virtualList/VirtualList2.vue'
 import Scroller from './components/isInViewPort/Scroller_3.vue'
 import HalfPx from './components/half-px/HalfPx.vue'
 import Attrs from './components/attrs-listeners/A.vue'
-let d = []
-for (let i = 0; i < 1000; i++) {
-  d.push({ id: i, value: Math.floor(Math.random() * 1000) })
+import { faker } from '@faker-js/faker'
+
+// faker data virtualList
+// let d = []
+// for (let i = 0; i < 1000; i++) {
+//   d.push({ id: i, value: Math.floor(Math.random() * 1000) })
+// }
+// faker data virtualList
+let data = []
+for (let id = 0; id < 10000; id++) {
+  data.push({
+    id,
+    value: faker.lorem.sentences(), // 长文本
+  })
 }
 export default {
   name: 'App',
   data() {
     return {
-      data: d,
+      data,
     }
   },
   components: {
-    VirtualList,
+    VirtualList1,
+    VirtualList2,
     Scroller,
     HalfPx,
     Attrs,
