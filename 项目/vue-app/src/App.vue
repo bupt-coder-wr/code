@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <!-- <VirtualList :listData="data" :itemSize="100" /> -->
-    <VirtualList2 :listData="data" :estimatedItemSize="100" />
+    <!-- <VirtualList2 :listData="data" :estimatedItemSize="100" /> -->
     <!-- <Scroller /> -->
-    <!-- <HalfPx /> -->
+    <HalfPx />
     <!-- <Attrs /> -->
   </div>
 </template>
